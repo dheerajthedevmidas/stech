@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Southwest Tech — Premium Video Theme</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════════════════
+   SOUTHWEST TECH — PREMIUM VIDEO THEME
+   Modern, cinematic design with HD video hero
+   Mobile responsive • WCAG 2.1 AA compliant
+   ══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Colors */
+  --navy: #0A1628;
+  --navy-light: #1A2B47;
+  --blue: #2563EB;
+  --blue-light: #3B82F6;
+  --cyan: #06B6D4;
+  --amber: #F59E0B;
+  --amber-dark: #D97706;
+  --white: #FFFFFF;
+  --gray-50: #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB;
+  --gray-300: #D1D5DB;
+  --gray-400: #9CA3AF;
+  --gray-500: #6B7280;
+  --gray-600: #4B5563;
+  --gray-700: #374151;
+  --gray-800: #1F2937;
+  --gray-900: #111827;
+  
+  /* Typography */
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  
+  /* Spacing & Effects */
+  --radius: 12px;
+  --radius-lg: 16px;
+  --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+  --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+  --shadow-xl: 0 25px 50px -12px rgba(0,0,0,0.25);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+html { 
+  scroll-behavior: smooth; 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--gray-900);
+  background: var(--white);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── UTILITIES ────────────────────────────────────────────── */
+.container { 
+  max-width: 1280px; 
+  margin: 0 auto; 
+  padding: 0 40px; 
+}
+
+.container--narrow { 
+  max-width: 960px; 
+  margin: 0 auto; 
+  padding: 0 40px; 
+}
+
+.section-padding {
+  padding: 100px 0;
+}
+
+/* ── SKIP LINK (WCAG 2.4.1) ────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 20px;
+  background: var(--blue);
+  color: var(--white);
+  padding: 12px 24px;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: var(--radius);
+  z-index: 10000;
+  transition: top 0.3s;
+  box-shadow: var(--shadow-lg);
+}
+
+.skip-link:focus {
+  top: 20px;
+  outline: 3px solid var(--amber);
+  outline-offset: 3px;
+}
+
+/* ── FOCUS INDICATORS (WCAG 2.4.7) ─────────────────────── */
+a:focus, button:focus, input:focus, textarea:focus, select:focus {
+  outline: 3px solid var(--amber);
+  outline-offset: 2px;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   TOP BAR
+   ══════════════════════════════════════════════════════════════ */
+.topbar {
+  background: var(--navy);
+  padding: 10px 0;
+  font-size: 13px;
+  color: rgba(255,255,255,0.8);
+  font-weight: 500;
+}
+
+.topbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topbar-left {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.topbar-left span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.topbar-left svg {
+  width: 14px;
+  height: 14px;
+  opacity: 0.7;
+}
+
+.topbar-right {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.topbar-link {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  transition: var(--transition);
+  font-size: 12.5px;
+}
+
+.topbar-link:hover {
+  background: rgba(255,255,255,0.1);
+  color: var(--white);
+}
+
+.topbar-link.highlight {
+  background: var(--amber);
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.topbar-link.highlight:hover {
+  background: var(--amber-dark);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   HEADER / NAVIGATION
+   ══════════════════════════════════════════════════════════════ */
+.site-header {
+  background: rgba(255,255,255,0.98);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  transition: var(--transition);
+}
+
+.site-header.scrolled {
+  box-shadow: var(--shadow);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 40px;
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  z-index: 1001;
+}
+
+.logo-text {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.logo-text span {
+  color: var(--blue);
+}
+
+.logo-tagline {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  margin-top: 3px;
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1001;
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.mobile-menu-toggle:focus {
+  outline: 3px solid var(--amber);
+  outline-offset: 2px;
+  background: rgba(245,158,11,0.1);
+  border-radius: var(--radius);
+}
+
+.hamburger {
+  width: 28px;
+  height: 3px;
+  background: var(--navy);
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.mobile-menu-toggle[aria-expanded="true"] .hamburger:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.mobile-menu-toggle[aria-expanded="true"] .hamburger:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle[aria-expanded="true"] .hamburger:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Navigation */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-link {
+  color: var(--gray-700);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  transition: var(--transition);
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--blue);
+  background: var(--gray-50);
+}
+
+.nav-link:focus {
+  outline: 3px solid var(--amber);
+  outline-offset: 2px;
+  background: rgba(245,158,11,0.1);
+}
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--blue);
+  color: var(--white);
+  padding: 10px 24px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  margin-left: 8px;
+  transition: var(--transition);
+  box-shadow: 0 2px 8px rgba(37,99,235,0.2);
+}
+
+.nav-cta:hover {
+  background: var(--blue-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   VIDEO HERO SECTION
+   ══════════════════════════════════════════════════════════════ */
+.hero-video {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--navy);
+}
+
+/* Video Background */
+.hero-video__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.hero-video__player {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+/* Video Overlay */
+.hero-video__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(10,22,40,0.85) 0%, rgba(37,99,235,0.65) 100%);
+  z-index: 2;
+}
+
+/* Video Controls */
+.video-controls {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  z-index: 10;
+  display: flex;
+  gap: 12px;
+}
+
+.video-control-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 18px;
+}
+
+.video-control-btn:hover {
+  background: rgba(255,255,255,0.25);
+  transform: scale(1.05);
+}
+
+.video-control-btn:focus {
+  outline: 3px solid var(--amber);
+  outline-offset: 2px;
+}
+
+/* Hero Content */
+.hero-video__content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: var(--white);
+  max-width: 900px;
+  padding: 0 40px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.hero-badge-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--amber);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.hero-title-highlight {
+  background: linear-gradient(135deg, var(--cyan), var(--blue-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 22px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  color: rgba(255,255,255,0.95);
+  font-weight: 400;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: var(--transition);
+  box-shadow: var(--shadow-lg);
+}
+
+.hero-btn-primary {
+  background: var(--amber);
+  color: var(--navy);
+}
+
+.hero-btn-primary:hover {
+  background: var(--amber-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+.hero-btn-secondary {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  color: var(--white);
+  border: 2px solid rgba(255,255,255,0.3);
+}
+
+.hero-btn-secondary:hover {
+  background: rgba(255,255,255,0.25);
+  border-color: rgba(255,255,255,0.5);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   STATS SECTION
+   ══════════════════════════════════════════════════════════════ */
+.stats-section {
+  background: var(--gray-50);
+  padding: 80px 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 800;
+  color: var(--blue);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 15px;
+  color: var(--gray-600);
+  font-weight: 500;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   FEATURES SECTION
+   ══════════════════════════════════════════════════════════════ */
+.features-section {
+  padding: 100px 0;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px;
+}
+
+.section-eyebrow {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.section-subtitle {
+  font-size: 19px;
+  color: var(--gray-600);
+  line-height: 1.6;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.feature-card {
+  background: var(--white);
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-200);
+  transition: var(--transition);
+}
+
+.feature-card:hover {
+  border-color: var(--blue);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.feature-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  font-size: 28px;
+}
+
+.feature-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.feature-description {
+  color: var(--gray-600);
+  line-height: 1.7;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   PROGRAMS SECTION
+   ══════════════════════════════════════════════════════════════ */
+.programs-section {
+  background: var(--navy);
+  color: var(--white);
+  padding: 100px 0;
+}
+
+.programs-section .section-eyebrow {
+  color: var(--cyan);
+}
+
+.programs-section .section-title {
+  color: var(--white);
+}
+
+.programs-section .section-subtitle {
+  color: rgba(255,255,255,0.8);
+}
+
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 60px;
+}
+
+.program-card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.program-card:hover {
+  background: rgba(255,255,255,0.08);
+  border-color: var(--cyan);
+  transform: translateY(-4px);
+}
+
+.program-category {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 16px;
+}
+
+.program-title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--white);
+}
+
+.program-description {
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 24px;
+  line-height: 1.7;
+}
+
+.program-meta {
+  display: flex;
+  gap: 24px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+}
+
+.program-meta span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   CTA SECTION
+   ══════════════════════════════════════════════════════════════ */
+.cta-section {
+  background: linear-gradient(135deg, var(--blue), var(--cyan));
+  padding: 80px 0;
+  text-align: center;
+  color: var(--white);
+}
+
+.cta-title {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.cta-subtitle {
+  font-size: 20px;
+  margin-bottom: 40px;
+  opacity: 0.95;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 36px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  transition: var(--transition);
+}
+
+.cta-btn-white {
+  background: var(--white);
+  color: var(--blue);
+  box-shadow: var(--shadow-lg);
+}
+
+.cta-btn-white:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+.cta-btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255,255,255,0.5);
+}
+
+.cta-btn-outline:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: var(--white);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   FOOTER
+   ══════════════════════════════════════════════════════════════ */
+.site-footer {
+  background: var(--gray-900);
+  color: rgba(255,255,255,0.7);
+  padding: 60px 0 30px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+
+.footer-column h4 {
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.footer-column p {
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 14px;
+  transition: var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--white);
+  padding-left: 4px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 12px;
+}
+
+.social-link {
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.social-link:hover {
+  background: var(--blue);
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.footer-legal {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-legal a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.footer-legal a:hover {
+  color: var(--white);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   RESPONSIVE DESIGN - MOBILE FIRST
+   ══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  /* Container */
+  .container {
+    padding: 0 20px;
+  }
+  
+  /* Top Bar */
+  .topbar {
+    padding: 12px 0;
+  }
+  
+  .topbar .container {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  
+  .topbar-left {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+  
+  .topbar-right {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  /* Header */
+  .header-container {
+    padding: 16px 20px;
+  }
+  
+  .logo-text {
+    font-size: 24px;
+  }
+  
+  .logo-tagline {
+    font-size: 9px;
+  }
+  
+  /* Mobile Menu Toggle */
+  .mobile-menu-toggle {
+    display: flex;
+    right: 20px;
+  }
+  
+  /* Navigation */
+  .main-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    max-width: 85vw;
+    height: 100vh;
+    background: var(--white);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 80px 0 20px;
+    box-shadow: -5px 0 30px rgba(0,0,0,0.2);
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    z-index: 1000;
+  }
+  
+  .main-nav.active {
+    right: 0;
+  }
+  
+  .nav-link {
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--gray-200);
+    border-left: 4px solid transparent;
+    border-radius: 0;
+  }
+  
+  .nav-link:hover {
+    border-left-color: var(--blue);
+    background: var(--gray-50);
+  }
+  
+  .nav-cta {
+    margin: 20px 24px;
+    justify-content: center;
+  }
+  
+  /* Menu Overlay */
+  body.menu-open::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Hero Video */
+  .hero-video {
+    min-height: 70vh;
+  }
+  
+  .hero-video__content {
+    padding: 0 20px;
+  }
+  
+  .hero-title {
+    font-size: 40px;
+  }
+  
+  .hero-subtitle {
+    font-size: 18px;
+  }
+  
+  .hero-cta-group {
+    flex-direction: column;
+  }
+  
+  .hero-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .video-controls {
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .video-control-btn {
+    width: 44px;
+    height: 44px;
+  }
+  
+  /* Stats */
+  .stats-section {
+    padding: 60px 0;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  
+  .stat-number {
+    font-size: 40px;
+  }
+  
+  /* Features */
+  .features-section {
+    padding: 80px 0;
+  }
+  
+  .section-header {
+    margin-bottom: 40px;
+  }
+  
+  .section-title {
+    font-size: 32px;
+  }
+  
+  .section-subtitle {
+    font-size: 17px;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  /* Programs */
+  .programs-section {
+    padding: 80px 0;
+  }
+  
+  .programs-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .program-card {
+    padding: 30px;
+  }
+  
+  .program-title {
+    font-size: 24px;
+  }
+  
+  /* CTA */
+  .cta-section {
+    padding: 60px 0;
+  }
+  
+  .cta-title {
+    font-size: 32px;
+  }
+  
+  .cta-subtitle {
+    font-size: 18px;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+  }
+  
+  .cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .footer-legal {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 32px;
+  }
+  
+  .hero-subtitle {
+    font-size: 16px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-title {
+    font-size: 28px;
+  }
+  
+  .cta-title {
+    font-size: 28px;
+  }
+}
+
+/* ── TOUCH TARGETS (WCAG 2.5.5) ────────────────────────── */
+@media (hover: none) and (pointer: coarse) {
+  a, button, input, select, textarea {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* ── REDUCED MOTION (WCAG 2.3.3) ───────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .hero-badge-dot {
+    animation: none;
+  }
+}
+
+/* ── PRINT STYLES ──────────────────────────────────────── */
+@media print {
+  .topbar,
+  .mobile-menu-toggle,
+  .nav-cta,
+  .skip-link,
+  .video-controls,
+  .hero-cta-group,
+  .cta-section {
+    display: none;
+  }
+  
+  .hero-video__background,
+  .hero-video__overlay {
+    display: none;
+  }
+  
+  .hero-video {
+    background: var(--white);
+    color: var(--navy);
+    min-height: auto;
+    padding: 40px 0;
+  }
+  
+  .hero-video__content {
+    color: var(--navy);
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Skip Link for Accessibility -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- Top Bar -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <span>
+        <svg fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
+        <strong>Email:</strong> admissions@stech.edu
+      </span>
+      <span>
+        <svg fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
+        <strong>Phone:</strong> (555) 123-4567
+      </span>
+    </div>
+    <div class="topbar-right">
+      <a href="#" class="topbar-link">Student Portal</a>
+      <a href="#" class="topbar-link">Faculty Login</a>
+      <a href="#" class="topbar-link highlight">Apply Now</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header / Navigation -->
+<header class="site-header">
+  <div class="header-container">
+    <a href="#" class="logo">
+      <div class="logo-text">Southwest <span>Tech</span></div>
+      <div class="logo-tagline">Technical Excellence</div>
+    </a>
+    
+    <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
+      <span class="hamburger"></span>
+      <span class="hamburger"></span>
+      <span class="hamburger"></span>
+    </button>
+    
+    <nav class="main-nav" id="main-navigation" role="navigation" aria-label="Main navigation">
+      <a href="#programs" class="nav-link">Programs</a>
+      <a href="#admissions" class="nav-link">Admissions</a>
+      <a href="#campus" class="nav-link">Campus Life</a>
+      <a href="#about" class="nav-link">About Us</a>
+      <a href="#contact" class="nav-link">Contact</a>
+      <a href="#apply" class="nav-cta">
+        Apply Now
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- Video Hero Section -->
+<section class="hero-video" id="main-content">
+  <div class="hero-video__background">
+    <video class="hero-video__player" autoplay muted loop playsinline id="heroVideo" aria-label="Campus life background video showing students in modern learning environments">
+      <!-- Replace with your actual video URL -->
+      <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  
+  <div class="hero-video__overlay"></div>
+  
+  <div class="hero-video__content">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      Now Enrolling for Fall 2026
+    </div>
+    
+    <h1 class="hero-title">
+      Build Your Future with <span class="hero-title-highlight">Technical Excellence</span>
+    </h1>
+    
+    <p class="hero-subtitle">
+      Transform your career with hands-on technical education, industry-leading instructors, and cutting-edge facilities designed for real-world success.
+    </p>
+    
+    <div class="hero-cta-group">
+      <a href="#apply" class="hero-btn hero-btn-primary">
+        Start Application
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+      </a>
+      <a href="#programs" class="hero-btn hero-btn-secondary">
+        Explore Programs
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/></svg>
+      </a>
+    </div>
+  </div>
+  
+  <!-- Video Controls -->
+  <div class="video-controls">
+    <button class="video-control-btn" id="playPauseBtn" aria-label="Play or pause video">
+      <span id="playPauseIcon">⏸</span>
+    </button>
+    <button class="video-control-btn" id="muteBtn" aria-label="Mute or unmute video">
+      <span id="muteIcon">🔇</span>
+    </button>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">95%</div>
+        <div class="stat-label">Employment Rate</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">2,500+</div>
+        <div class="stat-label">Active Students</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">40+</div>
+        <div class="stat-label">Programs Offered</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">50+</div>
+        <div class="stat-label">Industry Partners</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="features-section" id="programs">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Why Choose STech</div>
+      <h2 class="section-title">Excellence in Technical Education</h2>
+      <p class="section-subtitle">We provide industry-aligned programs, hands-on training, and career support to help you succeed in today's competitive job market.</p>
+    </div>
+    
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🎓</div>
+        <h3 class="feature-title">Industry-Certified Programs</h3>
+        <p class="feature-description">All programs are aligned with industry standards and include professional certifications recognized by employers nationwide.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">💼</div>
+        <h3 class="feature-title">Career Services</h3>
+        <p class="feature-description">Dedicated career counseling, resume workshops, interview prep, and direct connections with hiring partners.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">🔬</div>
+        <h3 class="feature-title">State-of-the-Art Labs</h3>
+        <p class="feature-description">Access cutting-edge equipment and technology used in real-world professional environments.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">👥</div>
+        <h3 class="feature-title">Expert Instructors</h3>
+        <p class="feature-description">Learn from industry professionals with years of hands-on experience in their fields.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">⏰</div>
+        <h3 class="feature-title">Flexible Scheduling</h3>
+        <p class="feature-description">Day, evening, and weekend classes available to fit your work and family commitments.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">💰</div>
+        <h3 class="feature-title">Financial Aid</h3>
+        <p class="feature-description">Multiple scholarship opportunities, grants, and payment plans to make education affordable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Programs Section -->
+<section class="programs-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Our Programs</div>
+      <h2 class="section-title">Choose Your Career Path</h2>
+      <p class="section-subtitle">Explore our comprehensive range of technical programs designed to prepare you for in-demand careers.</p>
+    </div>
+    
+    <div class="programs-grid">
+      <div class="program-card">
+        <div class="program-category">Healthcare</div>
+        <h3 class="program-title">Nursing & Medical Assisting</h3>
+        <p class="program-description">Prepare for a rewarding career in healthcare with hands-on training in patient care, medical procedures, and clinical practice.</p>
+        <div class="program-meta">
+          <span>📅 12-18 Months</span>
+          <span>💼 95% Job Placement</span>
+        </div>
+      </div>
+      
+      <div class="program-card">
+        <div class="program-category">Technology</div>
+        <h3 class="program-title">IT & Cybersecurity</h3>
+        <p class="program-description">Master network administration, cloud computing, and cybersecurity to protect organizations from digital threats.</p>
+        <div class="program-meta">
+          <span>📅 18-24 Months</span>
+          <span>💼 92% Job Placement</span>
+        </div>
+      </div>
+      
+      <div class="program-card">
+        <div class="program-category">Skilled Trades</div>
+        <h3 class="program-title">Electrical & HVAC</h3>
+        <p class="program-description">Learn electrical systems, HVAC installation, and maintenance through comprehensive apprenticeship-style training.</p>
+        <div class="program-meta">
+          <span>📅 12-24 Months</span>
+          <span>💼 98% Job Placement</span>
+        </div>
+      </div>
+      
+      <div class="program-card">
+        <div class="program-category">Business</div>
+        <h3 class="program-title">Business Administration</h3>
+        <p class="program-description">Develop essential business skills including management, accounting, marketing, and entrepreneurship.</p>
+        <div class="program-meta">
+          <span>📅 18 Months</span>
+          <span>💼 90% Job Placement</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="container">
+    <h2 class="cta-title">Ready to Start Your Journey?</h2>
+    <p class="cta-subtitle">Join thousands of successful graduates who transformed their careers at Southwest Tech.</p>
+    <div class="cta-buttons">
+      <a href="#" class="cta-btn cta-btn-white">
+        Apply Today
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+      </a>
+      <a href="#" class="cta-btn cta-btn-outline">
+        Schedule a Tour
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-column">
+        <h4>Southwest Technical College</h4>
+        <p>Empowering students with technical skills and industry knowledge for successful careers since 1985.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="LinkedIn">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#">Programs</a></li>
+          <li><a href="#">Admissions</a></li>
+          <li><a href="#">Financial Aid</a></li>
+          <li><a href="#">Campus Life</a></li>
+          <li><a href="#">Career Services</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h4>Resources</h4>
+        <ul class="footer-links">
+          <li><a href="#">Student Portal</a></li>
+          <li><a href="#">Faculty Login</a></li>
+          <li><a href="#">Library</a></li>
+          <li><a href="#">Catalog</a></li>
+          <li><a href="#">Support</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-column">
+        <h4>Contact</h4>
+        <ul class="footer-links">
+          <li>123 Tech Drive</li>
+          <li>Southwest City, ST 12345</li>
+          <li>(555) 123-4567</li>
+          <li>info@stech.edu</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div>&copy; 2026 Southwest Technical College. All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Accessibility</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ══════════════════════════════════════════════════════════════
+// Mobile Menu Toggle - WCAG Compliant
+// ══════════════════════════════════════════════════════════════
+(function() {
+  const menuToggle = document.querySelector('.mobile-menu-toggle');
+  const nav = document.querySelector('.main-nav');
+  const body = document.body;
+  
+  if (menuToggle && nav) {
+    menuToggle.addEventListener('click', function() {
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      
+      this.setAttribute('aria-expanded', !isExpanded);
+      nav.classList.toggle('active');
+      body.classList.toggle('menu-open');
+      
+      if (!isExpanded) {
+        const firstLink = nav.querySelector('a');
+        if (firstLink) {
+          setTimeout(() => firstLink.focus(), 300);
+        }
+      }
+    });
+    
+    // Close on Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && nav.classList.contains('active')) {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('active');
+        body.classList.remove('menu-open');
+        menuToggle.focus();
+      }
+    });
+    
+    // Close when clicking outside
+    document.addEventListener('click', function(e) {
+      if (nav.classList.contains('active') && 
+          !nav.contains(e.target) && 
+          !menuToggle.contains(e.target)) {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('active');
+        body.classList.remove('menu-open');
+      }
+    });
+    
+    // Close on link click
+    const navLinks = nav.querySelectorAll('a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('active');
+        body.classList.remove('menu-open');
+      });
+    });
+  }
+})();
+
+// ══════════════════════════════════════════════════════════════
+// Video Controls
+// ══════════════════════════════════════════════════════════════
+(function() {
+  const video = document.getElementById('heroVideo');
+  const playPauseBtn = document.getElementById('playPauseBtn');
+  const muteBtn = document.getElementById('muteBtn');
+  const playPauseIcon = document.getElementById('playPauseIcon');
+  const muteIcon = document.getElementById('muteIcon');
+  
+  if (video && playPauseBtn && muteBtn) {
+    // Play/Pause toggle
+    playPauseBtn.addEventListener('click', function() {
+      if (video.paused) {
+        video.play();
+        playPauseIcon.textContent = '⏸';
+        this.setAttribute('aria-label', 'Pause video');
+      } else {
+        video.pause();
+        playPauseIcon.textContent = '▶';
+        this.setAttribute('aria-label', 'Play video');
+      }
+    });
+    
+    // Mute/Unmute toggle
+    muteBtn.addEventListener('click', function() {
+      if (video.muted) {
+        video.muted = false;
+        muteIcon.textContent = '🔊';
+        this.setAttribute('aria-label', 'Mute video');
+      } else {
+        video.muted = true;
+        muteIcon.textContent = '🔇';
+        this.setAttribute('aria-label', 'Unmute video');
+      }
+    });
+  }
+})();
+
+// ══════════════════════════════════════════════════════════════
+// Smooth Scroll for Skip Link
+// ══════════════════════════════════════════════════════════════
+document.querySelector('.skip-link')?.addEventListener('click', function(e) {
+  e.preventDefault();
+  const target = document.querySelector(this.getAttribute('href'));
+  if (target) {
+    target.setAttribute('tabindex', '-1');
+    target.focus();
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+});
+
+// ══════════════════════════════════════════════════════════════
+// Header Scroll Effect
+// ══════════════════════════════════════════════════════════════
+window.addEventListener('scroll', function() {
+  const header = document.querySelector('.site-header');
+  if (window.scrollY > 100) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
+</script>
+
+</body>
+</html>
