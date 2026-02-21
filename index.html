@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Southwest Tech — WordPress Theme Redesign Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════
+   DESIGN TOKENS — Southwest Tech Brand
+   ═══════════════════════════════════════════════ */
+:root {
+  --navy: #003B71;
+  --navy-dark: #00284F;
+  --navy-mid: #004B8D;
+  --sky: #0082CA;
+  --sky-light: #E8F4FD;
+  --amber: #F5A623;
+  --amber-dark: #D4911A;
+  --white: #FFFFFF;
+  --off-white: #F7F9FC;
+  --gray-100: #EEF1F6;
+  --gray-200: #D9DFE8;
+  --gray-500: #6B7A99;
+  --gray-800: #1E2A3A;
+  --text: #1A2636;
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-body: 'Barlow', sans-serif;
+  --radius: 6px;
+  --shadow: 0 4px 24px rgba(0,59,113,0.12);
+  --shadow-lg: 0 12px 48px rgba(0,59,113,0.18);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--white);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── UTILITY ─────────────────────────────── */
+.container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+.container--narrow { max-width: 900px; margin: 0 auto; padding: 0 40px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+
+/* ══════════════════════════════════════════
+   TOP BAR
+══════════════════════════════════════════ */
+.topbar {
+  background: var(--navy-dark);
+  color: rgba(255,255,255,0.75);
+  font-size: 12.5px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 8px 0;
+}
+.topbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.topbar__left { display: flex; gap: 20px; align-items: center; }
+.topbar__left span { display: flex; align-items: center; gap: 6px; }
+.topbar__right { display: flex; gap: 4px; align-items: center; }
+.topbar__right a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 3px;
+  font-size: 12px;
+  transition: all 0.2s;
+}
+.topbar__right a:hover { color: var(--white); background: rgba(255,255,255,0.08); }
+.topbar__right a.accent {
+  background: var(--amber);
+  color: var(--navy-dark);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 4px 14px;
+  border-radius: 3px;
+}
+.topbar__right a.accent:hover { background: var(--amber-dark); }
+
+/* ══════════════════════════════════════════
+   HEADER / NAV
+══════════════════════════════════════════ */
+.site-header {
+  background: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,59,113,0.09);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 40px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.site-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.logo-diamond {
+  width: 46px; height: 46px;
+  position: relative;
+  flex-shrink: 0;
+}
+.logo-diamond svg { width: 100%; height: 100%; }
+.logo-text { display: flex; flex-direction: column; }
+.logo-text__main {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+.logo-text__sub {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--sky);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.site-nav { display: flex; gap: 2px; align-items: center; }
+.nav-item { position: relative; }
+.nav-item > a {
+  display: flex; align-items: center; gap: 4px;
+  padding: 10px 16px;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--navy);
+  text-decoration: none;
+  border-radius: var(--radius);
+  transition: all 0.2s;
+}
+.nav-item > a:hover { color: var(--sky); background: var(--sky-light); }
+.nav-item > a svg { width: 12px; opacity: 0.5; }
+
+.nav-cta {
+  margin-left: 12px;
+  display: flex; align-items: center;
+}
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: var(--radius); font-family: var(--font-body); font-size: 14px; font-weight: 700; letter-spacing: 0.03em; text-decoration: none; cursor: pointer; border: none; transition: all 0.25s; }
+.btn--primary { background: var(--amber); color: var(--navy-dark); }
+.btn--primary:hover { background: var(--amber-dark); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(245,166,35,0.35); }
+.btn--navy { background: var(--navy); color: var(--white); }
+.btn--navy:hover { background: var(--navy-dark); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,59,113,0.3); }
+.btn--outline { background: transparent; color: var(--navy); border: 2px solid var(--navy); }
+.btn--outline:hover { background: var(--navy); color: var(--white); }
+.btn--white { background: var(--white); color: var(--navy); }
+.btn--white:hover { background: var(--off-white); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
+.btn--sm { padding: 9px 18px; font-size: 13px; }
+.btn--lg { padding: 16px 36px; font-size: 16px; }
+
+/* ══════════════════════════════════════════
+   HERO
+══════════════════════════════════════════ */
+.hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--navy-dark);
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: 
+    linear-gradient(105deg, rgba(0,40,79,0.97) 0%, rgba(0,59,113,0.88) 45%, rgba(0,75,141,0.65) 70%, transparent 100%),
+    url('https://images.unsplash.com/photo-1562774053-701939374585?w=1600&q=80') center/cover no-repeat;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 2px, rgba(0,130,202,0.03) 2px, rgba(0,130,202,0.03) 4px
+  );
+}
+.hero-accent-line {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 5px;
+  background: linear-gradient(180deg, var(--amber) 0%, var(--sky) 100%);
+}
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 1280px; margin: 0 auto; padding: 80px 40px;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 80px;
+  align-items: center;
+  width: 100%;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(245,166,35,0.15);
+  border: 1px solid rgba(245,166,35,0.4);
+  color: var(--amber);
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.hero-badge::before { content: '●'; font-size: 8px; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+.hero-headline {
+  font-family: var(--font-display);
+  font-size: clamp(56px, 7vw, 90px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+}
+.hero-headline em {
+  font-style: normal;
+  color: var(--amber);
+  display: block;
+}
+.hero-sub {
+  font-size: 18px;
+  color: rgba(255,255,255,0.75);
+  font-weight: 300;
+  max-width: 540px;
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+.hero-social-proof {
+  display: flex; gap: 32px;
+  padding-top: 36px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+.proof-item { display: flex; flex-direction: column; }
+.proof-num {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--amber);
+  line-height: 1;
+}
+.proof-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 2px;
+}
+
+/* Hero card */
+.hero-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+.hero-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--amber) 0%, var(--sky) 100%);
+}
+.hero-card h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.program-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+.program-list li {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 14px;
+  background: var(--gray-100);
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--navy);
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+.program-list li:hover { background: var(--sky-light); border-color: var(--sky); color: var(--sky); }
+.program-list li .icon { font-size: 18px; }
+.program-list li .arrow { margin-left: auto; opacity: 0.4; font-size: 12px; }
+
+/* ══════════════════════════════════════════
+   QUICK LINKS BAR
+══════════════════════════════════════════ */
+.quick-bar {
+  background: var(--sky);
+  padding: 0;
+}
+.quick-bar .container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.quick-item {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 8px;
+  padding: 24px 20px;
+  text-align: center;
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  border-right: 1px solid rgba(255,255,255,0.15);
+  transition: all 0.25s;
+  position: relative;
+}
+.quick-item:last-child { border-right: none; }
+.quick-item:hover { background: rgba(255,255,255,0.12); }
+.quick-item .q-icon { font-size: 28px; }
+.quick-item .q-label { font-size: 11px; opacity: 0.8; font-weight: 400; margin-top: -4px; }
+
+/* ══════════════════════════════════════════
+   SECTION COMMONS
+══════════════════════════════════════════ */
+section { padding: 80px 0; }
+.section-label {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sky);
+  margin-bottom: 10px;
+  display: flex; align-items: center; gap: 8px;
+}
+.section-label::before { content: ''; display: block; width: 24px; height: 2px; background: var(--amber); }
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(34px, 4vw, 50px);
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+.section-title em { font-style: normal; color: var(--sky); }
+.section-body {
+  font-size: 17px;
+  color: var(--gray-500);
+  max-width: 560px;
+  line-height: 1.7;
+  margin-top: 14px;
+  font-weight: 300;
+}
+
+/* ══════════════════════════════════════════
+   PROGRAMS SECTION
+══════════════════════════════════════════ */
+.programs-section { background: var(--off-white); }
+.programs-header {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: 48px;
+}
+.program-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.program-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 28px 24px;
+  text-decoration: none;
+  display: flex; flex-direction: column;
+  border: 1px solid var(--gray-200);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.program-card::before {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--navy);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+.program-card:hover {
+  border-color: var(--navy);
+  box-shadow: var(--shadow);
+  transform: translateY(-4px);
+}
+.program-card:hover::before { transform: scaleX(1); }
+.program-card:nth-child(1):hover::before, .program-card:nth-child(1) .pc-icon { color: #e74c3c; }
+.program-card:nth-child(2):hover::before, .program-card:nth-child(2) .pc-icon { color: #3498db; }
+.program-card:nth-child(3):hover::before, .program-card:nth-child(3) .pc-icon { color: #27ae60; }
+.program-card:nth-child(4):hover::before, .program-card:nth-child(4) .pc-icon { color: #9b59b6; }
+.program-card:nth-child(5):hover::before, .program-card:nth-child(5) .pc-icon { color: #e67e22; }
+.program-card:nth-child(6):hover::before, .program-card:nth-child(6) .pc-icon { color: #1abc9c; }
+.program-card:nth-child(7):hover::before, .program-card:nth-child(7) .pc-icon { color: #f39c12; }
+.program-card:nth-child(8):hover::before, .program-card:nth-child(8) .pc-icon { color: #e91e63; }
+
+.pc-icon {
+  font-size: 36px;
+  margin-bottom: 14px;
+  transition: transform 0.3s;
+  display: block;
+}
+.program-card:hover .pc-icon { transform: scale(1.1) rotate(-5deg); }
+.pc-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.pc-desc { font-size: 13px; color: var(--gray-500); line-height: 1.5; flex: 1; margin-bottom: 16px; }
+.pc-meta { font-size: 12px; font-weight: 600; color: var(--sky); letter-spacing: 0.04em; display: flex; align-items: center; gap: 4px; }
+
+/* ══════════════════════════════════════════
+   WHY CHOOSE SECTION
+══════════════════════════════════════════ */
+.why-section {
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+}
+.why-section::before {
+  content: '';
+  position: absolute; right: -100px; top: -100px;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: rgba(0,130,202,0.08);
+}
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.why-left .section-title { color: var(--white); }
+.why-left .section-label { color: var(--amber); }
+.why-left .section-body { color: rgba(255,255,255,0.65); max-width: 100%; }
+.why-features { margin-top: 40px; display: flex; flex-direction: column; gap: 20px; }
+.why-feature {
+  display: flex; gap: 18px; align-items: flex-start;
+  padding: 20px 24px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+.why-feature:hover { background: rgba(255,255,255,0.09); border-color: var(--amber); }
+.why-feature-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  width: 50px; height: 50px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(245,166,35,0.15);
+  border-radius: 8px;
+}
+.why-feature-text h4 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+.why-feature-text p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+.why-right {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+}
+.stat-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 28px 20px;
+  text-align: center;
+  transition: all 0.3s;
+}
+.stat-card:hover { background: rgba(255,255,255,0.1); border-color: var(--amber); transform: translateY(-4px); }
+.stat-card:first-child { grid-column: span 2; background: rgba(245,166,35,0.1); border-color: rgba(245,166,35,0.3); }
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 52px;
+  font-weight: 900;
+  color: var(--amber);
+  line-height: 1;
+}
+.stat-unit { font-size: 24px; font-weight: 900; color: var(--amber); }
+.stat-label { font-size: 13px; color: rgba(255,255,255,0.6); margin-top: 6px; font-weight: 400; line-height: 1.4; }
+
+/* ══════════════════════════════════════════
+   TESTIMONIALS
+══════════════════════════════════════════ */
+.testimonials-section { background: var(--white); }
+.testimonials-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  margin-top: 48px;
+}
+.testimonial-card {
+  background: var(--off-white);
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 32px 28px;
+  position: relative;
+  transition: all 0.3s;
+}
+.testimonial-card:hover { box-shadow: var(--shadow); transform: translateY(-4px); }
+.testimonial-card .quote-mark {
+  font-family: Georgia, serif;
+  font-size: 72px;
+  line-height: 0.8;
+  color: var(--sky);
+  opacity: 0.2;
+  position: absolute;
+  top: 20px; left: 24px;
+}
+.testimonial-card blockquote {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--gray-800);
+  font-style: italic;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+  padding-top: 16px;
+}
+.testimonial-author { display: flex; align-items: center; gap: 12px; }
+.author-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy), var(--sky));
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  flex-shrink: 0;
+}
+.author-info strong { display: block; font-size: 14px; font-weight: 600; color: var(--navy); }
+.author-info span { font-size: 12px; color: var(--sky); font-weight: 500; }
+
+/* ══════════════════════════════════════════
+   CTA BAND
+══════════════════════════════════════════ */
+.cta-band {
+  background: linear-gradient(105deg, var(--amber) 0%, #F9B73D 50%, var(--amber-dark) 100%);
+  padding: 70px 0;
+  position: relative;
+  overflow: hidden;
+}
+.cta-band::before {
+  content: '';
+  position: absolute; right: -60px; top: -60px;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+}
+.cta-band::after {
+  content: '';
+  position: absolute; left: -40px; bottom: -80px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.06);
+}
+.cta-inner {
+  position: relative; z-index: 1;
+  display: flex; align-items: center; justify-content: space-between; gap: 40px;
+}
+.cta-band h2 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 900;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  line-height: 1.05;
+}
+.cta-band p { font-size: 17px; color: rgba(0,59,113,0.75); margin-top: 8px; font-weight: 400; }
+.cta-buttons { display: flex; gap: 14px; flex-shrink: 0; }
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+.site-footer { background: var(--gray-800); padding: 60px 0 0; }
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.footer-brand .logo-text__main { color: var(--white); font-size: 26px; }
+.footer-brand .logo-text__sub { color: var(--sky); }
+.footer-tagline { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.6; margin-top: 16px; margin-bottom: 20px; }
+.footer-contact a { display: block; font-size: 13.5px; color: rgba(255,255,255,0.65); text-decoration: none; margin-bottom: 6px; transition: color 0.2s; }
+.footer-contact a:hover { color: var(--amber); }
+.footer-col h4 {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 18px;
+}
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.footer-links a { font-size: 13.5px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--amber); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 0;
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+}
+.accreditation { display: flex; align-items: center; gap: 10px; }
+.accred-badge {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.06em;
+}
+
+/* ══════════════════════════════════════════
+   ANNOTATIONS / DESIGN NOTES
+══════════════════════════════════════════ */
+.design-note {
+  position: fixed;
+  right: 20px; top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,59,113,0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 20px;
+  width: 220px;
+  z-index: 999;
+  box-shadow: var(--shadow-lg);
+}
+.design-note h5 {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--amber);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 14px;
+}
+.note-item {
+  display: flex; gap: 8px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.4;
+}
+.note-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--amber); flex-shrink: 0; margin-top: 4px; }
+.note-dismiss { width: 100%; margin-top: 14px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: rgba(255,255,255,0.7); font-size: 11px; padding: 7px; border-radius: 6px; cursor: pointer; font-family: var(--font-body); transition: all 0.2s; }
+.note-dismiss:hover { background: rgba(255,255,255,0.14); color: var(--white); }
+</style>
+</head>
+<body>
+
+<!-- DESIGN NOTES PANEL -->
+<div class="design-note" id="designNote">
+  <h5>🎨 Theme Preview</h5>
+  <div class="note-item"><span class="note-dot"></span>Custom WordPress theme — no page builder</div>
+  <div class="note-item"><span class="note-dot"></span>Barlow Condensed display + Barlow body</div>
+  <div class="note-item"><span class="note-dot"></span>Navy #003B71 + Amber #F5A623 brand palette</div>
+  <div class="note-item"><span class="note-dot"></span>WCAG 2.1 AA compliant contrast ratios</div>
+  <div class="note-item"><span class="note-dot"></span>Mobile-first responsive — 5 breakpoints</div>
+  <div class="note-item"><span class="note-dot"></span>ACF Pro + Gravity Forms + Yoast SEO</div>
+  <button class="note-dismiss" onclick="document.getElementById('designNote').style.display='none'">Dismiss Panel</button>
+</div>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar__left">
+      <span>📍 Cedar City, UT</span>
+      <span>📞 (435) 586-2899</span>
+      <span>✉ info@stech.edu</span>
+    </div>
+    <div class="topbar__right">
+      <a href="#">Course Schedules</a>
+      <a href="#">Canvas</a>
+      <a href="#">Student Portal</a>
+      <a href="#">Student Job Board</a>
+      <a href="#">Donate</a>
+      <a href="#" class="accent">GET STARTED →</a>
+    </div>
+  </div>
+</div>
+
+<!-- SITE HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="site-logo">
+      <div class="logo-diamond">
+        <svg viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M23 2L44 23L23 44L2 23L23 2Z" fill="#003B71"/>
+          <path d="M23 8L38 23L23 38L8 23L23 8Z" fill="#0082CA"/>
+          <path d="M23 14L32 23L23 32L14 23L23 14Z" fill="#F5A623"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <span class="logo-text__main">SOUTHWEST TECH</span>
+        <span class="logo-text__sub">Southwest Technical College</span>
+      </div>
+    </a>
+
+    <nav class="site-nav" aria-label="Main navigation">
+      <div class="nav-item">
+        <a href="#">Certificates <svg viewBox="0 0 10 6" fill="currentColor"><path d="M0 0l5 6 5-6z"/></svg></a>
+      </div>
+      <div class="nav-item">
+        <a href="#">Community & Business <svg viewBox="0 0 10 6" fill="currentColor"><path d="M0 0l5 6 5-6z"/></svg></a>
+      </div>
+      <div class="nav-item">
+        <a href="#">Admissions <svg viewBox="0 0 10 6" fill="currentColor"><path d="M0 0l5 6 5-6z"/></svg></a>
+      </div>
+      <div class="nav-item">
+        <a href="#">Current Students <svg viewBox="0 0 10 6" fill="currentColor"><path d="M0 0l5 6 5-6z"/></svg></a>
+      </div>
+      <div class="nav-item">
+        <a href="#">College Info <svg viewBox="0 0 10 6" fill="currentColor"><path d="M0 0l5 6 5-6z"/></svg></a>
+      </div>
+    </nav>
+
+    <div class="nav-cta">
+      <a href="#" class="btn btn--primary">Apply Now</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" aria-label="Hero banner">
+  <div class="hero-bg" role="img" aria-label="Southwest Tech campus aerial view"></div>
+  <div class="hero-accent-line"></div>
+
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge">Now Enrolling — Spring 2026</div>
+      <h1 class="hero-headline">
+        Build Your<br>
+        <em>Future.</em>
+        Hands-On.
+      </h1>
+      <p class="hero-sub">Southwest Technical College offers 20+ accredited certificate programs designed with local employers — so you graduate job-ready, not just degree-ready.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn btn--primary btn--lg">Explore Programs →</a>
+        <a href="#" class="btn btn--white btn--lg">Apply Now</a>
+      </div>
+      <div class="hero-social-proof">
+        <div class="proof-item">
+          <span class="proof-num">20+</span>
+          <span class="proof-label">Certificate Programs</span>
+        </div>
+        <div class="proof-item">
+          <span class="proof-num">100%</span>
+          <span class="proof-label">Acceptance Rate</span>
+        </div>
+        <div class="proof-item">
+          <span class="proof-num">$90</span>
+          <span class="proof-label">Per Credit Hour</span>
+        </div>
+        <div class="proof-item">
+          <span class="proof-num">4</span>
+          <span class="proof-label">Counties Served</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <h3>🎯 Find Your Program</h3>
+      <ul class="program-list">
+        <li><span class="icon">🔧</span> Automotive Technology <span class="arrow">›</span></li>
+        <li><span class="icon">💊</span> Health Professions <span class="arrow">›</span></li>
+        <li><span class="icon">💻</span> Computer Science &amp; IT <span class="arrow">›</span></li>
+        <li><span class="icon">🍳</span> Culinary Arts <span class="arrow">›</span></li>
+        <li><span class="icon">🚒</span> Public Safety / EMT <span class="arrow">›</span></li>
+        <li><span class="icon">⚙️</span> Welding &amp; Manufacturing <span class="arrow">›</span></li>
+      </ul>
+      <a href="#" class="btn btn--navy" style="width:100%; justify-content:center;">View All Programs</a>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK LINKS BAR -->
+<div class="quick-bar" role="navigation" aria-label="Quick access links">
+  <div class="container">
+    <a href="#" class="quick-item">
+      <span class="q-icon">🏆</span>
+      <strong>Accredited Programs</strong>
+      <span class="q-label">View certificates</span>
+    </a>
+    <a href="#" class="quick-item">
+      <span class="q-icon">📅</span>
+      <strong>Class Schedules</strong>
+      <span class="q-label">Spring 2026</span>
+    </a>
+    <a href="#" class="quick-item">
+      <span class="q-icon">📋</span>
+      <strong>How to Enroll</strong>
+      <span class="q-label">Step-by-step guide</span>
+    </a>
+    <a href="#" class="quick-item">
+      <span class="q-icon">💰</span>
+      <strong>Tuition &amp; Aid</strong>
+      <span class="q-label">From $90/credit</span>
+    </a>
+  </div>
+</div>
+
+<!-- PROGRAMS SECTION -->
+<section class="programs-section" id="programs">
+  <div class="container">
+    <div class="programs-header">
+      <div>
+        <p class="section-label">What We Offer</p>
+        <h2 class="section-title">Certificate Programs<br><em>Built for Real Careers</em></h2>
+        <p class="section-body">Every program is developed in partnership with local employers — ensuring what you learn translates directly into a job.</p>
+      </div>
+      <a href="#" class="btn btn--outline">All Programs →</a>
+    </div>
+
+    <div class="program-grid">
+      <a href="#" class="program-card">
+        <span class="pc-icon">🔧</span>
+        <div class="pc-title">Automotive</div>
+        <p class="pc-desc">ASE-aligned technician training for today's modern vehicles and diagnostic systems.</p>
+        <span class="pc-meta">→ 2 Certificates</span>
+      </a>
+      <a href="#" class="program-card">
+        <span class="pc-icon">💊</span>
+        <div class="pc-title">Health Professions</div>
+        <p class="pc-desc">Medical Assistant, Pharmacy Tech, Phlebotomy, Surgical Tech, and more.</p>
+        <span class="pc-meta">→ 5 Certificates</span>
+      </a>
+      <a href="#" class="program-card">
+        <span class="pc-icon">💻</span>
+        <div class="pc-title">Computer Science</div>
+        <p class="pc-desc">IT support, software development, networking fundamentals for the digital workforce.</p>
+        <span class="pc-meta">→ 2 Certificates</span>
+      </a>
+      <a href="#" class="program-card">
+        <span class="pc-icon">🍳</span>
+        <div class="pc-title">Culinary Arts</div>
+        <p class="pc-desc">Professional kitchen skills, food safety, nutrition, and hospitality management.</p>
+        <span class="pc-meta">→ 1 Certificate</span>
+      </a>
+      <a href="#" class="program-card">
+        <span class="pc-icon">🚒</span>
+        <div class="pc-title">Public Safety</div>
+        <p class="pc-desc">EMT, Advanced EMT, Paramedic, and Firefighter certification programs.</p>
+        <span class="pc-meta">→ 4 Certificates</span>
+      </a>
+      <a href="#" class="program-card">
+        <span class="pc-icon">⚡</span>
+        <div class="pc-title">Apprenticeships</div>
+        <p class="pc-desc">Electrical and Plumbing apprenticeship programs — earn while you learn.</p>
+        <span class="pc-meta">→ 2 Apprenticeships</span>
+      </a>
+      <a href="#" class="program-card">
+        <span class="pc-icon">🚛</span>
+        <div class="pc-title">Transportation</div>
+        <p class="pc-desc">CDL Class A commercial driver licensing and automotive technician pathways.</p>
+        <span class="pc-meta">→ 2 Certificates</span>
+      </a>
+      <a href="#" class="program-card">
+        <span class="pc-icon">🔩</span>
+        <div class="pc-title">Manufacturing</div>
+        <p class="pc-desc">Automation technology, welding essentials, and industrial maintenance skills.</p>
+        <span class="pc-meta">→ 2 Certificates</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY SECTION -->
+<section class="why-section" id="why">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-left">
+        <p class="section-label">Why Southwest Tech</p>
+        <h2 class="section-title" style="color:var(--white);">Education That<br><em style="color:var(--amber);">Works For You</em></h2>
+        <p class="section-body">We don't compete with universities — we complement them. Our focus is practical, affordable, and fast pathways to real employment in Southern Utah.</p>
+
+        <div class="why-features">
+          <div class="why-feature">
+            <div class="why-feature-icon">🎯</div>
+            <div class="why-feature-text">
+              <h4>Employer-Driven Curriculum</h4>
+              <p>Programs built directly with local employers — you learn exactly what the job market demands.</p>
+            </div>
+          </div>
+          <div class="why-feature">
+            <div class="why-feature-icon">💰</div>
+            <div class="why-feature-text">
+              <h4>Genuinely Affordable</h4>
+              <p>At just $90/credit hour, a full certificate costs a fraction of a traditional degree. Financial aid available.</p>
+            </div>
+          </div>
+          <div class="why-feature">
+            <div class="why-feature-icon">⏱️</div>
+            <div class="why-feature-text">
+              <h4>Flexible &amp; Self-Paced</h4>
+              <p>Year-round enrollment, flexible hours, and competency-based programs — built around your life.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="why-right">
+        <div class="stat-card">
+          <div class="stat-num">100<span class="stat-unit">%</span></div>
+          <div class="stat-label">Acceptance Rate — If you're ready to work, you're in.</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">20<span class="stat-unit">+</span></div>
+          <div class="stat-label">Accredited Certificate Programs</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">$90</div>
+          <div class="stat-label">Per Credit Hour — One of Utah's most affordable</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">4</div>
+          <div class="stat-label">County Service Region in Southern Utah</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section" id="testimonials">
+  <div class="container">
+    <p class="section-label">Student Success</p>
+    <h2 class="section-title">Real People.<br><em>Real Outcomes.</em></h2>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <span class="quote-mark">"</span>
+        <blockquote>Southwest Tech has been a game-changer. The staff and faculty are knowledgeable, helpful, and genuinely care about your success. If you're looking for a place to launch your career, I highly recommend it.</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar">VR</div>
+          <div class="author-info">
+            <strong>Vibalia Raj</strong>
+            <span>Medical Assistant Program</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <span class="quote-mark">"</span>
+        <blockquote>I enrolled in the CDL program and had a job offer before I even graduated. The instructors have real industry experience and the training is hands-on from day one.</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar">JM</div>
+          <div class="author-info">
+            <strong>James Mitchell</strong>
+            <span>CDL Class A Transportation</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <span class="quote-mark">"</span>
+        <blockquote>As a high school student, the dual enrollment program let me earn college credits while still finishing my diploma. Southwest Tech made the process completely seamless.</blockquote>
+        <div class="testimonial-author">
+          <div class="author-avatar">SA</div>
+          <div class="author-info">
+            <strong>Sofia Alvarez</strong>
+            <span>Dual Enrollment — Health Professions</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band" aria-label="Call to action">
+  <div class="container">
+    <div class="cta-inner">
+      <div>
+        <h2>Your Career Starts Here.</h2>
+        <p>Enrollment is open year-round. Take the first step today — no application fee required.</p>
+      </div>
+      <div class="cta-buttons">
+        <a href="#" class="btn btn--navy btn--lg">Apply Now — It's Free</a>
+        <a href="#" class="btn btn--outline btn--lg" style="border-color:var(--navy); color:var(--navy);">Request Information</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="#" class="site-logo footer-brand" style="margin-bottom:16px; display:inline-flex;">
+          <div class="logo-diamond" style="width:38px;height:38px;">
+            <svg viewBox="0 0 46 46" fill="none"><path d="M23 2L44 23L23 44L2 23L23 2Z" fill="#003B71"/><path d="M23 8L38 23L23 38L8 23L23 8Z" fill="#0082CA"/><path d="M23 14L32 23L23 32L14 23L23 14Z" fill="#F5A623"/></svg>
+          </div>
+          <div class="logo-text" style="margin-left:10px;">
+            <span class="logo-text__main" style="font-size:22px;color:#fff;">SOUTHWEST TECH</span>
+            <span class="logo-text__sub" style="color:#0082CA;">Southwest Technical College</span>
+          </div>
+        </a>
+        <p class="footer-tagline">Empowering individuals through innovative, hands-on technical education to build careers and strengthen communities across Southern Utah.</p>
+        <div class="footer-contact">
+          <a href="#">📍 757 W 800 S, Cedar City, UT 84720</a>
+          <a href="#">📞 (435) 586-2899</a>
+          <a href="#">✉ info@stech.edu</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Programs</h4>
+        <ul class="footer-links">
+          <li><a href="#">Automotive Technology</a></li>
+          <li><a href="#">Health Professions</a></li>
+          <li><a href="#">Computer Science</a></li>
+          <li><a href="#">Culinary Arts</a></li>
+          <li><a href="#">Public Safety</a></li>
+          <li><a href="#">Transportation / CDL</a></li>
+          <li><a href="#">Manufacturing</a></li>
+          <li><a href="#">Apprenticeships</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Admissions</h4>
+        <ul class="footer-links">
+          <li><a href="#">How to Apply</a></li>
+          <li><a href="#">Tuition &amp; Fees</a></li>
+          <li><a href="#">Financial Aid</a></li>
+          <li><a href="#">High School Students</a></li>
+          <li><a href="#">Course Schedules</a></li>
+          <li><a href="#">Campus Visits</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>College Info</h4>
+        <ul class="footer-links">
+          <li><a href="#">About Southwest Tech</a></li>
+          <li><a href="#">Leadership &amp; Faculty</a></li>
+          <li><a href="#">Campus Locations</a></li>
+          <li><a href="#">Accreditation</a></li>
+          <li><a href="#">News &amp; Events</a></li>
+          <li><a href="#">Campus Safety</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Southwest Technical College. All rights reserved. | Privacy Policy | Accessibility Statement</span>
+      <div class="accreditation">
+        <span class="accred-badge">COE ACCREDITED</span>
+        <span class="accred-badge">UTAH SYSTEM OF HIGHER EDUCATION</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
