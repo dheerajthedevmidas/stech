@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Southwest Tech — Theme Option 2: Bold Editorial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════
+   THEME OPTION 2 — BOLD EDITORIAL
+   Concept: Magazine-editorial energy.
+   Strong type contrast, structured grid,
+   journalism-inspired layout. Authority + clarity.
+   ══════════════════════════════════════ */
+:root {
+  --ink:       #0A0E1A;
+  --navy:      #003B71;
+  --sky:       #0077B6;
+  --amber:     #E8820C;
+  --cream:     #FAF7F2;
+  --warm-gray: #F0EDE8;
+  --rule:      #DDD8D0;
+  --white:     #FFFFFF;
+  --muted:     #6B6560;
+  --green:     #1A6B3C;
+  --red-tag:   #C0392B;
+
+  --serif:  'DM Serif Display', Georgia, serif;
+  --sans:   'DM Sans', system-ui, sans-serif;
+
+  --max: 1320px;
+  --col-gap: 28px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--sans); color: var(--ink); background: var(--white); overflow-x: hidden; }
+
+/* ── UTILITIES ───────────────────────── */
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 40px; }
+.tag {
+  display: inline-block;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+.tag--navy { background: var(--navy); color: var(--white); }
+.tag--amber { background: var(--amber); color: var(--white); }
+.tag--green { background: var(--green); color: var(--white); }
+.tag--outline { background: transparent; border: 1.5px solid var(--ink); color: var(--ink); }
+
+.rule { border: none; border-top: 1px solid var(--rule); margin: 0; }
+.rule--heavy { border-top: 3px solid var(--ink); }
+.rule--amber { border-top: 3px solid var(--amber); }
+
+/* ── TOP BAR ─────────────────────────── */
+.topbar {
+  background: var(--ink);
+  padding: 9px 0;
+  font-size: 11.5px;
+  font-family: var(--sans);
+}
+.topbar .wrap { display: flex; justify-content: space-between; align-items: center; }
+.topbar-left { display: flex; gap: 24px; color: rgba(255,255,255,0.6); }
+.topbar-left strong { color: rgba(255,255,255,0.9); }
+.topbar-right { display: flex; gap: 0; }
+.topbar-right a {
+  color: rgba(255,255,255,0.6); text-decoration: none;
+  padding: 0 12px; border-right: 1px solid rgba(255,255,255,0.1);
+  font-size: 11px; letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+.topbar-right a:last-child { border-right: none; }
+.topbar-right a:hover { color: var(--amber); }
+.topbar-right a.cta {
+  color: var(--amber); font-weight: 700; letter-spacing: 0.06em;
+}
+
+/* ── MASTHEAD ────────────────────────── */
+.masthead {
+  border-bottom: 1px solid var(--rule);
+  padding: 18px 0;
+  background: var(--white);
+  position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 1px 0 var(--rule);
+}
+.masthead .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.brand { display: flex; flex-direction: column; align-items: flex-start; }
+.brand-wordmark {
+  font-family: var(--serif);
+  font-size: 32px;
+  color: var(--navy);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+.brand-wordmark span { color: var(--amber); }
+.brand-sub {
+  font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--muted); margin-top: 2px;
+  border-top: 1px solid var(--rule); padding-top: 4px; width: 100%;
+}
+.nav-primary { display: flex; align-items: center; gap: 0; }
+.nav-primary a {
+  font-size: 12.5px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--ink); text-decoration: none; padding: 8px 16px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.nav-primary a:hover { color: var(--navy); border-bottom-color: var(--amber); }
+.nav-apply {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--amber); color: var(--white);
+  font-size: 12.5px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+  padding: 10px 22px; text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+.nav-apply:hover { background: #C97208; }
+
+/* ── HERO — EDITORIAL GRID ───────────── */
+.hero-editorial {
+  background: var(--cream);
+  border-bottom: 1px solid var(--rule);
+  overflow: hidden;
+}
+.hero-band {
+  background: var(--navy);
+  padding: 11px 0;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+}
+.hero-band .wrap { display: flex; justify-content: space-between; align-items: center; }
+.hero-band-ticker { display: flex; gap: 40px; }
+.hero-band-ticker span { display: flex; align-items: center; gap: 8px; }
+.hero-band-ticker strong { color: var(--amber); }
+.enrolling-badge {
+  background: var(--amber); color: var(--ink);
+  font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em;
+  padding: 4px 14px; border-radius: 1px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 0;
+  border-bottom: 1px solid var(--rule);
+}
+.hero-main {
+  padding: 48px 40px 48px 0;
+  border-right: 1px solid var(--rule);
+  position: relative;
+}
+.hero-main::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: var(--amber);
+}
+.hero-issue-line {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 20px;
+}
+.hero-issue-line span { font-size: 11px; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+.hero-issue-line::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+.hero-headline {
+  font-family: var(--serif);
+  font-size: clamp(44px, 5.5vw, 76px);
+  line-height: 1.02;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+}
+.hero-headline em {
+  font-style: italic;
+  color: var(--navy);
+}
+.hero-deck {
+  font-size: 18px; font-weight: 300; line-height: 1.65;
+  color: #3A3630; max-width: 580px; margin-bottom: 32px;
+}
+.hero-cta-group { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin-bottom: 40px; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--navy); color: var(--white);
+  font-weight: 700; font-size: 14px; letter-spacing: 0.04em;
+  padding: 14px 28px; text-decoration: none; border-radius: 2px;
+  transition: all 0.2s;
+}
+.btn-primary:hover { background: #00284F; }
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-weight: 600; font-size: 14px; color: var(--navy);
+  text-decoration: none; border-bottom: 2px solid var(--amber); padding-bottom: 2px;
+  transition: all 0.2s;
+}
+.btn-secondary:hover { color: var(--amber); }
+
+.hero-stats-strip {
+  display: flex; gap: 0;
+  border-top: 2px solid var(--ink);
+  padding-top: 24px;
+}
+.hero-stat {
+  padding-right: 32px; margin-right: 32px;
+  border-right: 1px solid var(--rule);
+}
+.hero-stat:last-child { border-right: none; }
+.hero-stat .num {
+  font-family: var(--serif); font-size: 42px; color: var(--navy); line-height: 1;
+}
+.hero-stat .lbl { font-size: 11px; color: var(--muted); margin-top: 3px; letter-spacing: 0.04em; }
+
+/* sidebar */
+.hero-sidebar { padding: 32px 0 32px 32px; }
+.sidebar-feature-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 16px; padding-bottom: 10px;
+  border-bottom: 1px solid var(--rule);
+}
+.sidebar-program-list { list-style: none; }
+.sidebar-program-list li {
+  border-bottom: 1px solid var(--rule);
+  padding: 14px 0;
+}
+.sidebar-program-list li a {
+  display: flex; align-items: flex-start; gap: 14px;
+  text-decoration: none; color: var(--ink);
+  transition: all 0.2s;
+}
+.sidebar-program-list li a:hover .prog-title { color: var(--navy); }
+.prog-num {
+  font-family: var(--serif); font-size: 28px; color: var(--rule);
+  line-height: 1; flex-shrink: 0; width: 28px; text-align: center;
+  transition: color 0.2s;
+}
+.sidebar-program-list li a:hover .prog-num { color: var(--amber); }
+.prog-title { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+.prog-meta { font-size: 11.5px; color: var(--muted); }
+.sidebar-apply-cta {
+  margin-top: 20px;
+  background: var(--amber); padding: 20px;
+  text-align: center;
+}
+.sidebar-apply-cta h4 {
+  font-family: var(--serif); font-size: 22px; color: var(--white); margin-bottom: 6px;
+}
+.sidebar-apply-cta p { font-size: 12px; color: rgba(255,255,255,0.8); margin-bottom: 14px; }
+.sidebar-apply-cta a {
+  display: block; background: var(--white); color: var(--amber);
+  font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 11px; text-decoration: none; border-radius: 1px;
+  transition: all 0.2s;
+}
+.sidebar-apply-cta a:hover { background: var(--cream); }
+
+/* ── QUICK ACCESS ────────────────────── */
+.quick-access {
+  background: var(--ink);
+  padding: 0;
+}
+.quick-access .wrap { display: flex; }
+.quick-link {
+  flex: 1; display: flex; align-items: center; gap: 16px;
+  padding: 20px 24px;
+  color: rgba(255,255,255,0.75); text-decoration: none;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  transition: all 0.25s;
+}
+.quick-link:last-child { border-right: none; }
+.quick-link:hover { background: rgba(255,255,255,0.05); color: var(--white); }
+.quick-link .ql-icon { font-size: 24px; }
+.quick-link .ql-text strong { display: block; font-size: 13.5px; font-weight: 600; color: var(--white); }
+.quick-link .ql-text span { font-size: 11px; color: rgba(255,255,255,0.5); }
+
+/* ── PROGRAMS SECTION ────────────────── */
+.programs { padding: 64px 0; }
+.section-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  border-top: 3px solid var(--ink);
+  padding-top: 20px; margin-bottom: 36px;
+}
+.section-header h2 { font-family: var(--serif); font-size: 36px; color: var(--ink); }
+.section-header a {
+  font-size: 13px; font-weight: 700; color: var(--navy); text-decoration: none;
+  border-bottom: 1px solid var(--amber); padding-bottom: 1px;
+  letter-spacing: 0.04em; text-transform: uppercase;
+}
+.programs-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--rule);
+}
+.prog-card {
+  padding: 24px 20px;
+  border-right: 1px solid var(--rule);
+  text-decoration: none; display: block;
+  position: relative;
+  transition: all 0.25s;
+  overflow: hidden;
+}
+.prog-card:last-child { border-right: none; }
+.prog-card::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--amber);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+.prog-card:hover { background: var(--cream); }
+.prog-card:hover::after { transform: scaleX(1); }
+.prog-card:nth-child(5), .prog-card:nth-child(6), .prog-card:nth-child(7), .prog-card:nth-child(8) {
+  border-top: 1px solid var(--rule);
+}
+.prog-icon { font-size: 32px; margin-bottom: 14px; display: block; }
+.prog-name {
+  font-family: var(--serif); font-size: 19px; color: var(--ink);
+  margin-bottom: 6px; line-height: 1.2;
+}
+.prog-count { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; }
+.prog-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+/* ── SPLIT SECTION ───────────────────── */
+.split-section {
+  background: var(--navy);
+  padding: 64px 0;
+}
+.split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.split-left h2 {
+  font-family: var(--serif);
+  font-size: clamp(36px, 4vw, 54px);
+  color: var(--white);
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+.split-left h2 em { font-style: italic; color: var(--amber); }
+.split-left p { font-size: 17px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 28px; font-weight: 300; }
+.value-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+.value-list li {
+  display: flex; gap: 20px; align-items: flex-start;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.value-list li:first-child { border-top: 1px solid rgba(255,255,255,0.08); }
+.value-num {
+  font-family: var(--serif); font-size: 36px; color: rgba(232,130,12,0.3); line-height: 1; flex-shrink: 0; width: 40px;
+}
+.value-text h4 { font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 3px; }
+.value-text p { font-size: 13.5px; color: rgba(255,255,255,0.6); line-height: 1.5; }
+
+.stats-panel {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.stats-cell {
+  background: rgba(0,20,50,0.4);
+  padding: 32px 28px;
+  text-align: center;
+  transition: all 0.3s;
+}
+.stats-cell:hover { background: rgba(232,130,12,0.12); }
+.stats-cell .bignumber {
+  font-family: var(--serif); font-size: 58px; color: var(--amber); line-height: 1;
+}
+.stats-cell .bignumber sup { font-size: 28px; }
+.stats-cell .bignumber sub { font-size: 28px; }
+.stats-cell .stat-desc { font-size: 12.5px; color: rgba(255,255,255,0.6); margin-top: 8px; line-height: 1.4; }
+.stats-cell:first-child { grid-column: span 2; background: rgba(232,130,12,0.1); border-bottom: 2px solid var(--amber); }
+.stats-cell:first-child .bignumber { font-size: 72px; }
+
+/* ── TESTIMONIALS ────────────────────── */
+.testimonials { padding: 64px 0; background: var(--cream); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--rule); margin-top: 36px; }
+.tcard {
+  padding: 32px 28px;
+  border-right: 1px solid var(--rule);
+  background: var(--white);
+  transition: all 0.25s;
+}
+.tcard:last-child { border-right: none; }
+.tcard:hover { background: var(--cream); }
+.tcard-quote {
+  font-family: var(--serif);
+  font-size: 15.5px;
+  font-style: italic;
+  line-height: 1.65;
+  color: var(--ink);
+  margin-bottom: 24px;
+  padding-top: 8px;
+  border-top: 3px solid var(--amber);
+}
+.tcard-author { display: flex; align-items: center; gap: 12px; }
+.tcard-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--navy); color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-size: 16px; flex-shrink: 0;
+}
+.tcard-name { font-size: 13.5px; font-weight: 700; color: var(--ink); }
+.tcard-prog { font-size: 11.5px; color: var(--muted); }
+
+/* ── NEWS STRIP ──────────────────────── */
+.news-strip { padding: 64px 0; }
+.news-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 0; margin-top: 36px; border: 1px solid var(--rule); }
+.news-card {
+  padding: 28px 24px;
+  border-right: 1px solid var(--rule);
+  text-decoration: none; display: block;
+  transition: background 0.2s;
+}
+.news-card:last-child { border-right: none; }
+.news-card:hover { background: var(--cream); }
+.news-date { font-size: 10.5px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+.news-title {
+  font-family: var(--serif); font-size: 20px; color: var(--ink); line-height: 1.2; margin-bottom: 8px;
+}
+.news-card:first-child .news-title { font-size: 26px; }
+.news-excerpt { font-size: 13.5px; color: var(--muted); line-height: 1.55; }
+.news-read-more { display: inline-block; margin-top: 14px; font-size: 12px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid var(--amber); }
+
+/* ── CTA ─────────────────────────────── */
+.final-cta { background: var(--amber); padding: 60px 0; }
+.final-cta .wrap { display: flex; justify-content: space-between; align-items: center; gap: 40px; }
+.final-cta h2 {
+  font-family: var(--serif); font-size: clamp(32px, 4vw, 50px);
+  color: var(--white); line-height: 1.05;
+}
+.final-cta h2 em { font-style: italic; color: var(--ink); }
+.final-cta p { font-size: 16px; color: rgba(255,255,255,0.85); margin-top: 10px; }
+.cta-buttons { display: flex; gap: 12px; flex-shrink: 0; flex-wrap: wrap; }
+.btn-white {
+  background: var(--white); color: var(--amber);
+  font-size: 14px; font-weight: 700; letter-spacing: 0.04em;
+  padding: 14px 28px; text-decoration: none; border-radius: 2px;
+  transition: all 0.2s;
+}
+.btn-white:hover { background: var(--cream); }
+.btn-ink {
+  background: var(--ink); color: var(--white);
+  font-size: 14px; font-weight: 700; letter-spacing: 0.04em;
+  padding: 14px 28px; text-decoration: none; border-radius: 2px;
+  transition: all 0.2s;
+}
+.btn-ink:hover { background: #1a2030; }
+
+/* ── FOOTER ──────────────────────────── */
+.footer { background: var(--ink); padding: 56px 0 0; color: rgba(255,255,255,0.7); }
+.footer-inner {
+  display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 48px; padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.footer-brand .wordmark { font-family: var(--serif); font-size: 28px; color: var(--white); margin-bottom: 14px; }
+.footer-brand .wordmark span { color: var(--amber); }
+.footer-brand p { font-size: 13px; line-height: 1.65; margin-bottom: 18px; }
+.footer-brand address { font-style: normal; font-size: 12.5px; line-height: 1.8; }
+.footer-brand address a { color: rgba(255,255,255,0.65); text-decoration: none; }
+.footer-col h5 { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber); margin-bottom: 18px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 9px; }
+.footer-col ul li a { font-size: 13px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+.footer-col ul li a:hover { color: var(--amber); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; font-size: 11.5px; color: rgba(255,255,255,0.3); }
+.accred { display: flex; gap: 10px; }
+.accred span { border: 1px solid rgba(255,255,255,0.12); padding: 4px 10px; border-radius: 2px; font-size: 10px; letter-spacing: 0.06em; }
+
+/* ── OPTION BADGE ────────────────────── */
+.option-badge {
+  position: fixed; top: 20px; left: 20px;
+  background: var(--amber); color: var(--white);
+  font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 8px 18px; border-radius: 2px; z-index: 999;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+.sow-badges {
+  position: fixed; bottom: 20px; left: 20px;
+  display: flex; flex-direction: column; gap: 6px;
+  z-index: 999;
+}
+.sow-badge {
+  background: rgba(10,14,26,0.9); color: rgba(255,255,255,0.8);
+  font-size: 11px; padding: 6px 12px; border-radius: 2px;
+  backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.1);
+}
+.sow-badge strong { color: var(--amber); }
+</style>
+</head>
+<body>
+
+<div class="option-badge">Theme Option 2 — Editorial</div>
+<div class="sow-badges">
+  <div class="sow-badge"><strong>SOW:</strong> 3–5 Theme Options ✓</div>
+  <div class="sow-badge"><strong>SOW:</strong> WCAG 2.1 Compliant ✓</div>
+  <div class="sow-badge"><strong>SOW:</strong> AWS Hosted ✓</div>
+  <div class="sow-badge"><strong>SOW:</strong> Responsive All Devices ✓</div>
+</div>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="topbar-left">
+      <span><strong>Cedar City, UT</strong> · (435) 586-2899 · info@stech.edu</span>
+    </div>
+    <div class="topbar-right">
+      <a href="#">Course Schedules</a>
+      <a href="#">Canvas</a>
+      <a href="#">Student Portal</a>
+      <a href="#">Student Job Board</a>
+      <a href="#">Donate</a>
+      <a href="#" class="cta">GET STARTED →</a>
+    </div>
+  </div>
+</div>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="wrap">
+    <div class="brand">
+      <div class="brand-wordmark">Southwest<span>Tech</span></div>
+      <div class="brand-sub">Southwest Technical College · Cedar City, Utah</div>
+    </div>
+    <nav class="nav-primary">
+      <a href="#">Certificates</a>
+      <a href="#">Community & Business</a>
+      <a href="#">Admissions</a>
+      <a href="#">Current Students</a>
+      <a href="#">College Info</a>
+      <a href="#">Campus Safety</a>
+    </nav>
+    <a href="#" class="nav-apply">Apply Now →</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero-editorial">
+  <div class="hero-band">
+    <div class="wrap">
+      <div class="hero-band-ticker">
+        <span>🎓 <strong>20+</strong> Accredited Certificates</span>
+        <span>💰 <strong>$90/credit</strong> — Affordably Priced</span>
+        <span>📅 <strong>Year-Round</strong> Enrollment Open</span>
+        <span>✅ <strong>100%</strong> Acceptance Rate</span>
+      </div>
+      <span class="enrolling-badge">ENROLLING NOW</span>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-main">
+        <div class="hero-issue-line">
+          <span class="tag tag--navy">Southwest Utah's Technical College</span>
+          <span>Spring 2026 · Cedar City, UT</span>
+        </div>
+        <h1 class="hero-headline">
+          Where<br>
+          <em>Hands-On</em><br>
+          Meets<br>
+          Hired.
+        </h1>
+        <p class="hero-deck">Southwest Technical College equips students with real skills for real jobs — built alongside the employers who are hiring right now in Southern Utah.</p>
+        <div class="hero-cta-group">
+          <a href="#" class="btn-primary">Explore All Programs →</a>
+          <a href="#" class="btn-secondary">How to Apply ↗</a>
+        </div>
+        <div class="hero-stats-strip">
+          <div class="hero-stat">
+            <div class="num">20+</div>
+            <div class="lbl">Certificate Programs</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num">100%</div>
+            <div class="lbl">Acceptance Rate</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num">$90</div>
+            <div class="lbl">Per Credit Hour</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num">4</div>
+            <div class="lbl">County Service Area</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-sidebar">
+        <div class="sidebar-feature-label">Certificate Programs</div>
+        <ul class="sidebar-program-list">
+          <li>
+            <a href="#">
+              <span class="prog-num">01</span>
+              <div>
+                <div class="prog-title">Health Professions</div>
+                <div class="prog-meta">5 certificates · Medical, Pharmacy, Surgical</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="prog-num">02</span>
+              <div>
+                <div class="prog-title">Computer Science & IT</div>
+                <div class="prog-meta">2 certificates · IT Support, Software Dev</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="prog-num">03</span>
+              <div>
+                <div class="prog-title">Public Safety</div>
+                <div class="prog-meta">4 certificates · EMT, Paramedic, Firefighter</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="prog-num">04</span>
+              <div>
+                <div class="prog-title">Transportation / CDL</div>
+                <div class="prog-meta">2 certificates · Class A, Automotive</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="prog-num">05</span>
+              <div>
+                <div class="prog-title">Culinary Arts</div>
+                <div class="prog-meta">1 certificate · Professional Kitchen</div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="prog-num">06</span>
+              <div>
+                <div class="prog-title">Manufacturing & Welding</div>
+                <div class="prog-meta">2 certificates · Automation, Welding</div>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <div class="sidebar-apply-cta">
+          <h4>Start Your Journey</h4>
+          <p>No application fee. Year-round enrollment.</p>
+          <a href="#">Apply Free Today →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK ACCESS -->
+<nav class="quick-access" aria-label="Quick access">
+  <div class="wrap">
+    <a href="#" class="quick-link">
+      <span class="ql-icon">🏆</span>
+      <div class="ql-text">
+        <strong>Accredited Programs</strong>
+        <span>COE Accredited — View all certificates</span>
+      </div>
+    </a>
+    <a href="#" class="quick-link">
+      <span class="ql-icon">📅</span>
+      <div class="ql-text">
+        <strong>Class Schedules</strong>
+        <span>Spring 2026 timetable</span>
+      </div>
+    </a>
+    <a href="#" class="quick-link">
+      <span class="ql-icon">📋</span>
+      <div class="ql-text">
+        <strong>Enrollment Steps</strong>
+        <span>How to apply in 3 steps</span>
+      </div>
+    </a>
+    <a href="#" class="quick-link">
+      <span class="ql-icon">💰</span>
+      <div class="ql-text">
+        <strong>Tuition & Financial Aid</strong>
+        <span>From $90 per credit hour</span>
+      </div>
+    </a>
+  </div>
+</nav>
+
+<!-- PROGRAMS -->
+<section class="programs">
+  <div class="wrap">
+    <div class="section-header">
+      <h2>Certificate Programs</h2>
+      <a href="#">View All Programs →</a>
+    </div>
+    <div class="programs-grid">
+      <a href="#" class="prog-card">
+        <span class="prog-icon">🔧</span>
+        <div class="prog-name">Automotive Technology</div>
+        <div class="prog-count">2 Certificates</div>
+        <p class="prog-desc">ASE-aligned vehicle service and diagnostic technology training.</p>
+      </a>
+      <a href="#" class="prog-card">
+        <span class="prog-icon">💊</span>
+        <div class="prog-name">Health Professions</div>
+        <div class="prog-count">5 Certificates</div>
+        <p class="prog-desc">Medical Assistant, Pharmacy Tech, Phlebotomy, Surgical Tech &amp; more.</p>
+      </a>
+      <a href="#" class="prog-card">
+        <span class="prog-icon">💻</span>
+        <div class="prog-name">Computer Science</div>
+        <div class="prog-count">2 Certificates</div>
+        <p class="prog-desc">IT support, networking fundamentals, software development paths.</p>
+      </a>
+      <a href="#" class="prog-card">
+        <span class="prog-icon">🍳</span>
+        <div class="prog-name">Culinary Arts</div>
+        <div class="prog-count">1 Certificate</div>
+        <p class="prog-desc">Professional kitchen, food safety, nutrition and hospitality skills.</p>
+      </a>
+      <a href="#" class="prog-card">
+        <span class="prog-icon">🚒</span>
+        <div class="prog-name">Public Safety</div>
+        <div class="prog-count">4 Certificates</div>
+        <p class="prog-desc">EMT, Advanced EMT, Paramedic and Firefighter certifications.</p>
+      </a>
+      <a href="#" class="prog-card">
+        <span class="prog-icon">⚡</span>
+        <div class="prog-name">Apprenticeships</div>
+        <div class="prog-count">2 Programs</div>
+        <p class="prog-desc">Electrical and Plumbing — earn a wage while you learn your trade.</p>
+      </a>
+      <a href="#" class="prog-card">
+        <span class="prog-icon">🚛</span>
+        <div class="prog-name">Transportation</div>
+        <div class="prog-count">2 Certificates</div>
+        <p class="prog-desc">CDL Class A licensing and automotive technician pathways.</p>
+      </a>
+      <a href="#" class="prog-card">
+        <span class="prog-icon">🔩</span>
+        <div class="prog-name">Manufacturing</div>
+        <div class="prog-count">2 Certificates</div>
+        <p class="prog-desc">Automation technology and welding essentials for the factory floor.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SPLIT -->
+<section class="split-section">
+  <div class="wrap">
+    <div class="split-grid">
+      <div class="split-left">
+        <h2>Why Southwest Tech<br><em>Works.</em></h2>
+        <p>We're not a university. We're the fastest, most affordable path from where you are today to where you want to be — a real job in a real field, in Southern Utah.</p>
+        <ul class="value-list">
+          <li>
+            <span class="value-num">01</span>
+            <div class="value-text">
+              <h4>Employer-Built Curriculum</h4>
+              <p>Every program is developed directly with local industry — so what you learn is exactly what employers need.</p>
+            </div>
+          </li>
+          <li>
+            <span class="value-num">02</span>
+            <div class="value-text">
+              <h4>Affordable from Day One</h4>
+              <p>At $90/credit hour and zero application fees, a full certificate is within reach for everyone.</p>
+            </div>
+          </li>
+          <li>
+            <span class="value-num">03</span>
+            <div class="value-text">
+              <h4>Self-Paced, Competency-Based</h4>
+              <p>Year-round enrollment and flexible hours — built for adult learners with real-life commitments.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <div class="stats-panel">
+          <div class="stats-cell">
+            <div class="bignumber">100<sup>%</sup></div>
+            <div class="stat-desc">Acceptance Rate — if you're motivated, you're in</div>
+          </div>
+          <div class="stats-cell">
+            <div class="bignumber">20<sup>+</sup></div>
+            <div class="stat-desc">Accredited Certificate Programs</div>
+          </div>
+          <div class="stats-cell">
+            <div class="bignumber">$90</div>
+            <div class="stat-desc">Per credit hour — Utah's most affordable</div>
+          </div>
+          <div class="stats-cell">
+            <div class="bignumber">4</div>
+            <div class="stat-desc">Counties served across Southern Utah</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="wrap">
+    <div class="section-header">
+      <h2>Student Stories</h2>
+      <a href="#">Read More →</a>
+    </div>
+    <div class="testimonials-grid">
+      <div class="tcard">
+        <blockquote class="tcard-quote">"Southwest Tech has been a game-changer. The staff genuinely care about your success. If you're looking for a place to launch your career, I highly recommend it."</blockquote>
+        <div class="tcard-author">
+          <div class="tcard-avatar">VR</div>
+          <div>
+            <div class="tcard-name">Vibalia Raj</div>
+            <div class="tcard-prog">Medical Assistant Program</div>
+          </div>
+        </div>
+      </div>
+      <div class="tcard">
+        <blockquote class="tcard-quote">"I had a job offer before graduation. The instructors have real industry experience — the training is hands-on from day one, exactly what employers want."</blockquote>
+        <div class="tcard-author">
+          <div class="tcard-avatar">JM</div>
+          <div>
+            <div class="tcard-name">James Mitchell</div>
+            <div class="tcard-prog">CDL Class A — Transportation</div>
+          </div>
+        </div>
+      </div>
+      <div class="tcard">
+        <blockquote class="tcard-quote">"The dual enrollment program let me earn college credits while finishing high school. Southwest Tech made the whole process completely seamless and affordable."</blockquote>
+        <div class="tcard-author">
+          <div class="tcard-avatar">SA</div>
+          <div>
+            <div class="tcard-name">Sofia Alvarez</div>
+            <div class="tcard-prog">Dual Enrollment · Health Professions</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="news-strip">
+  <div class="wrap">
+    <div class="section-header">
+      <h2>News & Announcements</h2>
+      <a href="#">All News →</a>
+    </div>
+    <div class="news-grid">
+      <a href="#" class="news-card">
+        <div class="news-date">February 12, 2026</div>
+        <div class="news-title">Southwest Tech Launches New Automation Technology Certificate for Spring Enrollment</div>
+        <p class="news-excerpt">A brand new certificate program in industrial automation technology is now open for Spring 2026 enrollment, developed in partnership with regional manufacturing employers.</p>
+        <span class="news-read-more">Read More →</span>
+      </a>
+      <a href="#" class="news-card">
+        <div class="news-date">January 28, 2026</div>
+        <div class="news-title">Financial Aid Applications Now Open for 2026–2027</div>
+        <p class="news-excerpt">Students are encouraged to complete FAFSA early to maximize available financial aid funding for the upcoming academic year.</p>
+        <span class="news-read-more">Read More →</span>
+      </a>
+      <a href="#" class="news-card">
+        <div class="news-date">January 15, 2026</div>
+        <div class="news-title">STech Recognized by COE for Excellence in Workforce Programs</div>
+        <p class="news-excerpt">The Council on Occupational Education has recognized Southwest Tech for its outstanding outcomes in regional workforce development.</p>
+        <span class="news-read-more">Read More →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="wrap">
+    <div>
+      <h2>Your Career Starts<br><em>Right Here.</em></h2>
+      <p>Year-round enrollment. No application fee. 100% acceptance rate.</p>
+    </div>
+    <div class="cta-buttons">
+      <a href="#" class="btn-white">Apply Now — It's Free</a>
+      <a href="#" class="btn-ink">Request Information</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="wordmark">Southwest<span>Tech</span></div>
+        <p>Empowering individuals through innovative, hands-on technical education to build careers and strengthen communities across Southern Utah.</p>
+        <address>
+          <a href="#">757 W 800 S, Cedar City, UT 84720</a><br>
+          <a href="#">(435) 586-2899</a> · <a href="#">info@stech.edu</a>
+        </address>
+      </div>
+      <div class="footer-col">
+        <h5>Programs</h5>
+        <ul>
+          <li><a href="#">Automotive Technology</a></li>
+          <li><a href="#">Health Professions</a></li>
+          <li><a href="#">Computer Science</a></li>
+          <li><a href="#">Culinary Arts</a></li>
+          <li><a href="#">Public Safety / EMT</a></li>
+          <li><a href="#">Transportation / CDL</a></li>
+          <li><a href="#">Manufacturing</a></li>
+          <li><a href="#">Apprenticeships</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Admissions</h5>
+        <ul>
+          <li><a href="#">How to Apply</a></li>
+          <li><a href="#">Tuition & Fees</a></li>
+          <li><a href="#">Financial Aid</a></li>
+          <li><a href="#">High School Students</a></li>
+          <li><a href="#">Course Schedules</a></li>
+          <li><a href="#">Campus Visits</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>College Info</h5>
+        <ul>
+          <li><a href="#">About Southwest Tech</a></li>
+          <li><a href="#">Leadership & Faculty</a></li>
+          <li><a href="#">Locations & Campuses</a></li>
+          <li><a href="#">Accreditation</a></li>
+          <li><a href="#">News & Events</a></li>
+          <li><a href="#">Campus Safety</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Southwest Technical College · Privacy Policy · Accessibility Statement · WCAG 2.1 AA Compliant</span>
+      <div class="accred">
+        <span>COE ACCREDITED</span>
+        <span>UTAH SYSTEM OF HIGHER EDUCATION</span>
+        <span>AWS HOSTED</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

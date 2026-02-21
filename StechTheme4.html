@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STech — Southwest Technical College — Theme 1: Modern Editorial</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #1B3A5C;
+    --accent: #C8402A;
+    --gold: #D4A843;
+    --light: #F5F1EB;
+    --dark: #0F1F2F;
+    --text: #2C2C2C;
+    --white: #FFFFFF;
+    --gray: #6B7280;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ─── UTILITY BAR ─── */
+  .utility-bar {
+    background: var(--dark);
+    color: rgba(255,255,255,0.7);
+    font-size: 0.8rem;
+    padding: 6px 0;
+  }
+  .utility-bar .container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.5rem;
+  }
+  .utility-bar a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+    letter-spacing: 0.03em;
+  }
+  .utility-bar a:hover { color: var(--gold); }
+
+  /* ─── CONTAINER ─── */
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* ─── HEADER ─── */
+  .main-header {
+    background: var(--white);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.95);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--primary);
+  }
+  .logo-mark {
+    width: 48px;
+    height: 48px;
+    background: var(--primary);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+  }
+  .logo-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  .logo-text span {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--gray);
+    font-weight: 600;
+  }
+
+  .main-nav { display: flex; gap: 0; align-items: center; }
+  .main-nav a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 600;
+    font-size: 0.92rem;
+    padding: 0.5rem 1.2rem;
+    letter-spacing: 0.02em;
+    position: relative;
+    transition: color 0.2s;
+  }
+  .main-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 1.2rem;
+    right: 1.2rem;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  .main-nav a:hover { color: var(--primary); }
+  .main-nav a:hover::after { transform: scaleX(1); }
+
+  .nav-cta {
+    background: var(--accent) !important;
+    color: var(--white) !important;
+    border-radius: 4px;
+    padding: 0.6rem 1.4rem !important;
+    margin-left: 0.5rem;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: #a83520 !important; }
+  .nav-cta::after { display: none !important; }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  .menu-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--primary);
+    margin: 5px 0;
+    transition: 0.3s;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    height: 80vh;
+    min-height: 550px;
+    overflow: hidden;
+    background: var(--dark);
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #1B3A5C 0%, #0F1F2F 60%, #1a1a2e 100%);
+  }
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse at 20% 80%, rgba(200, 64, 42, 0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(212, 168, 67, 0.12) 0%, transparent 50%);
+  }
+  .hero-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image: 
+      repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(255,255,255,0.5) 60px, rgba(255,255,255,0.5) 61px),
+      repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(255,255,255,0.5) 60px, rgba(255,255,255,0.5) 61px);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .hero-text {
+    max-width: 700px;
+    animation: fadeUp 1s ease-out;
+  }
+  .hero-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    padding: 0.4rem 1rem;
+    border: 1px solid rgba(212, 168, 67, 0.4);
+    border-radius: 2px;
+  }
+  .hero-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+  }
+  .hero-text h2 em {
+    color: var(--gold);
+    font-style: italic;
+  }
+  .hero-text p {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    max-width: 540px;
+    font-weight: 300;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.9rem 2rem;
+    background: var(--accent);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 4px;
+    transition: all 0.3s;
+    letter-spacing: 0.02em;
+  }
+  .btn-primary:hover { background: #a83520; transform: translateY(-1px); }
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.9rem 2rem;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 4px;
+    transition: all 0.3s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-stats {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    background: rgba(15, 31, 47, 0.85);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  .stat-item {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    border-right: 1px solid rgba(255,255,255,0.06);
+    animation: fadeUp 0.8s ease-out backwards;
+  }
+  .stat-item:nth-child(1) { animation-delay: 0.2s; }
+  .stat-item:nth-child(2) { animation-delay: 0.35s; }
+  .stat-item:nth-child(3) { animation-delay: 0.5s; }
+  .stat-item:nth-child(4) { animation-delay: 0.65s; border-right: none; }
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.55);
+    margin-top: 0.4rem;
+    font-weight: 600;
+  }
+
+  /* ─── NEWS SECTION ─── */
+  .news-section {
+    padding: 5rem 0;
+    background: var(--white);
+  }
+  .section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .section-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--primary);
+  }
+  .section-header a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .section-header a:hover { color: #a83520; }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2rem;
+  }
+  .news-featured {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--light);
+    min-height: 440px;
+  }
+  .news-featured-img {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, #1B3A5C, #2a5a8a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    opacity: 0.9;
+  }
+  .news-featured-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2.5rem;
+    background: linear-gradient(transparent, rgba(15,31,47,0.95));
+    color: var(--white);
+  }
+  .news-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+  .news-featured-overlay h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .news-featured-overlay p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+  }
+
+  .news-list { display: flex; flex-direction: column; gap: 1.25rem; }
+  .news-card {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.25rem;
+    border-radius: 6px;
+    transition: all 0.3s;
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+  .news-card:hover {
+    background: var(--light);
+    border-color: rgba(0,0,0,0.05);
+    transform: translateX(4px);
+  }
+  .news-card-img {
+    width: 100px;
+    height: 80px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+  }
+  .news-card-body .news-tag { margin-bottom: 0.35rem; }
+  .news-card-body h5 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    line-height: 1.35;
+    color: var(--primary);
+  }
+  .news-card-body span {
+    font-size: 0.78rem;
+    color: var(--gray);
+    margin-top: 0.25rem;
+    display: block;
+  }
+
+  /* ─── PROGRAMS SECTION ─── */
+  .programs-section {
+    padding: 5rem 0;
+    background: var(--light);
+  }
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .program-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 2.5rem 2rem;
+    transition: all 0.4s;
+    border: 1px solid rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .program-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transition: transform 0.4s;
+  }
+  .program-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+  .program-card:hover::before { transform: scaleX(1); }
+  .program-icon {
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, var(--primary), #2a5a8a);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+  .program-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+  }
+  .program-card p {
+    font-size: 0.9rem;
+    color: var(--gray);
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+  .program-link {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--accent);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: gap 0.3s;
+  }
+  .program-link:hover { gap: 0.6rem; }
+
+  /* ─── CAMPUS LIFE ─── */
+  .campus-section {
+    padding: 5rem 0;
+    background: var(--white);
+  }
+  .campus-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+  .campus-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 280px;
+    cursor: pointer;
+  }
+  .campus-card-bg {
+    position: absolute;
+    inset: 0;
+    transition: transform 0.6s;
+  }
+  .campus-card:hover .campus-card-bg { transform: scale(1.08); }
+  .campus-card-content {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(transparent 40%, rgba(15,31,47,0.9));
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    color: var(--white);
+  }
+  .campus-card-content h5 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    margin-bottom: 0.25rem;
+  }
+  .campus-card-content p {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.65);
+  }
+
+  /* ─── EVENTS ─── */
+  .events-section {
+    padding: 5rem 0;
+    background: var(--primary);
+    color: var(--white);
+  }
+  .events-section .section-header { border-bottom-color: rgba(255,255,255,0.1); }
+  .events-section .section-header h3 { color: var(--white); }
+  .events-section .section-header a { color: var(--gold); }
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .event-card {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+  .event-card:hover {
+    background: rgba(255,255,255,0.08);
+    transform: translateY(-2px);
+  }
+  .event-date {
+    flex-shrink: 0;
+    text-align: center;
+    width: 56px;
+  }
+  .event-date .month {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  .event-date .day {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+  .event-info h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    line-height: 1.3;
+  }
+  .event-info p {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.55);
+  }
+
+  /* ─── CTA ─── */
+  .cta-section {
+    padding: 5rem 0;
+    background: var(--light);
+    text-align: center;
+  }
+  .cta-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+  .cta-section p {
+    font-size: 1.05rem;
+    color: var(--gray);
+    max-width: 520px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+  }
+  .cta-buttons { display: flex; gap: 1rem; justify-content: center; }
+  .btn-solid {
+    padding: 0.9rem 2.2rem;
+    background: var(--primary);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 4px;
+    transition: all 0.3s;
+  }
+  .btn-solid:hover { background: var(--dark); }
+  .btn-ghost {
+    padding: 0.9rem 2.2rem;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 4px;
+    transition: all 0.3s;
+  }
+  .btn-ghost:hover { background: var(--primary); color: var(--white); }
+
+  /* ─── FOOTER ─── */
+  .main-footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.6);
+    padding: 4rem 0 2rem;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer-brand .logo-text h1 { color: var(--white); font-size: 1.2rem; }
+  .footer-brand .logo-text span { color: rgba(255,255,255,0.4); }
+  .footer-brand p {
+    margin-top: 1rem;
+    font-size: 0.88rem;
+    line-height: 1.7;
+    max-width: 280px;
+  }
+  .footer-col h6 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    margin-bottom: 1.25rem;
+    font-weight: 700;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 0.6rem; }
+  .footer-col a {
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    font-size: 0.88rem;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--white); }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.35);
+  }
+  .footer-social { display: flex; gap: 1rem; }
+  .footer-social a {
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+    font-size: 0.85rem;
+  }
+  .footer-social a:hover { color: var(--gold); }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+  }
+  .animate-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    .programs-grid { grid-template-columns: repeat(2, 1fr); }
+    .campus-grid { grid-template-columns: repeat(2, 1fr); }
+    .events-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 768px) {
+    .main-nav { display: none; }
+    .menu-toggle { display: block; }
+    .hero { height: 70vh; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .news-grid { grid-template-columns: 1fr; }
+    .programs-grid { grid-template-columns: 1fr; }
+    .campus-grid { grid-template-columns: 1fr 1fr; }
+    .events-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .cta-buttons { flex-direction: column; align-items: center; }
+  }
+
+  /* ─── ACCESSIBILITY BAR ─── */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    padding: 1rem;
+    background: var(--accent);
+    color: var(--white);
+    z-index: 999;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .skip-link:focus { top: 0; }
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- UTILITY BAR -->
+<div class="utility-bar">
+  <div class="container">
+    <a href="#">Students</a>
+    <a href="#">Faculty & Staff</a>
+    <a href="#">Alumni</a>
+    <a href="#">Directory</a>
+    <a href="#">mySTech Portal</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="main-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <div class="logo-mark">STech</div>
+        <div class="logo-text">
+          <h1>STech</h1>
+          <span>Southwest Technical College</span>
+        </div>
+      </a>
+      <nav class="main-nav">
+        <a href="#">Academics</a>
+        <a href="#">Admissions</a>
+        <a href="#">Campus Life</a>
+        <a href="#">Research</a>
+        <a href="#">About</a>
+        <a href="#" class="nav-cta">Apply Now</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="main-content">
+  <div class="hero-bg">
+    <div class="hero-pattern"></div>
+  </div>
+  <div class="container hero-content">
+    <div class="hero-text">
+      <div class="hero-label">Now Enrolling — Fall 2026</div>
+      <h2>Shape Your Future with <em>Purpose & Skill</em></h2>
+      <p>At STech, we combine hands-on technical training with industry partnerships to launch careers that matter. Discover programs designed for the real world.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn-primary">Explore Programs →</a>
+        <a href="#" class="btn-outline">Schedule a Visit</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Programs Offered</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">94%</div>
+          <div class="stat-label">Job Placement Rate</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">12:1</div>
+          <div class="stat-label">Student-Faculty Ratio</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">$2.8M</div>
+          <div class="stat-label">Scholarships Awarded</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="news-section">
+  <div class="container">
+    <div class="section-header">
+      <h3>STech Today</h3>
+      <a href="#">View All News →</a>
+    </div>
+    <div class="news-grid">
+      <div class="news-featured animate-in">
+        <div class="news-featured-img" style="background: linear-gradient(160deg, #1B3A5C, #C8402A);">🔬</div>
+        <div class="news-featured-overlay">
+          <div class="news-tag">Featured • Research</div>
+          <h4>New Advanced Manufacturing Lab Opens Doors to Innovation</h4>
+          <p>A state-of-the-art facility bringing CNC, 3D printing, and robotics under one roof for students and industry partners.</p>
+        </div>
+      </div>
+      <div class="news-list">
+        <div class="news-card animate-in">
+          <div class="news-card-img" style="background: linear-gradient(135deg, #2a5a8a, #1B3A5C); border-radius: 4px;">🎓</div>
+          <div class="news-card-body">
+            <div class="news-tag">Academics</div>
+            <h5>Cybersecurity Program Earns National Accreditation</h5>
+            <span>February 18, 2026</span>
+          </div>
+        </div>
+        <div class="news-card animate-in">
+          <div class="news-card-img" style="background: linear-gradient(135deg, #D4A843, #C8402A); border-radius: 4px;">🤝</div>
+          <div class="news-card-body">
+            <div class="news-tag">Partnerships</div>
+            <h5>STech Partners with Regional Healthcare Network for Nursing Pipeline</h5>
+            <span>February 12, 2026</span>
+          </div>
+        </div>
+        <div class="news-card animate-in">
+          <div class="news-card-img" style="background: linear-gradient(135deg, #1B3A5C, #0F1F2F); border-radius: 4px;">🏆</div>
+          <div class="news-card-body">
+            <div class="news-tag">Campus</div>
+            <h5>Students Win Regional Skills Competition in Welding & HVAC</h5>
+            <span>February 5, 2026</span>
+          </div>
+        </div>
+        <div class="news-card animate-in">
+          <div class="news-card-img" style="background: linear-gradient(135deg, #C8402A, #a83520); border-radius: 4px;">💡</div>
+          <div class="news-card-body">
+            <div class="news-tag">Innovation</div>
+            <h5>AI & Data Analytics Certificate Launches This Spring</h5>
+            <span>January 28, 2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs-section">
+  <div class="container">
+    <div class="section-header">
+      <h3>Featured Programs</h3>
+      <a href="#">All Programs →</a>
+    </div>
+    <div class="programs-grid">
+      <div class="program-card animate-in">
+        <div class="program-icon">⚡</div>
+        <h4>Electrical Technology</h4>
+        <p>Master residential, commercial, and industrial electrical systems with hands-on labs and apprenticeship opportunities.</p>
+        <a href="#" class="program-link">Learn More →</a>
+      </div>
+      <div class="program-card animate-in">
+        <div class="program-icon">💻</div>
+        <h4>Information Technology</h4>
+        <p>From network administration to cloud computing, build the skills driving today's digital infrastructure.</p>
+        <a href="#" class="program-link">Learn More →</a>
+      </div>
+      <div class="program-card animate-in">
+        <div class="program-icon">🏥</div>
+        <h4>Health Sciences</h4>
+        <p>Prepare for careers in nursing, medical assisting, and allied health with clinical rotations at partner facilities.</p>
+        <a href="#" class="program-link">Learn More →</a>
+      </div>
+      <div class="program-card animate-in">
+        <div class="program-icon">⚙️</div>
+        <h4>Advanced Manufacturing</h4>
+        <p>CNC machining, welding, and automation technology in our newly expanded manufacturing center.</p>
+        <a href="#" class="program-link">Learn More →</a>
+      </div>
+      <div class="program-card animate-in">
+        <div class="program-icon">🔧</div>
+        <h4>Automotive Technology</h4>
+        <p>ASE-aligned curriculum covering diagnostics, hybrid/EV systems, and collision repair.</p>
+        <a href="#" class="program-link">Learn More →</a>
+      </div>
+      <div class="program-card animate-in">
+        <div class="program-icon">📊</div>
+        <h4>Business & Accounting</h4>
+        <p>Develop leadership and analytical skills for careers in management, accounting, and entrepreneurship.</p>
+        <a href="#" class="program-link">Learn More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAMPUS LIFE -->
+<section class="campus-section">
+  <div class="container">
+    <div class="section-header">
+      <h3>Life at STech</h3>
+      <a href="#">Explore Campus →</a>
+    </div>
+    <div class="campus-grid">
+      <div class="campus-card animate-in">
+        <div class="campus-card-bg" style="background: linear-gradient(135deg, #2a5a8a, #1B3A5C);"></div>
+        <div class="campus-card-content">
+          <h5>Student Organizations</h5>
+          <p>30+ clubs and professional groups</p>
+        </div>
+      </div>
+      <div class="campus-card animate-in">
+        <div class="campus-card-bg" style="background: linear-gradient(135deg, #C8402A, #8B2E1A);"></div>
+        <div class="campus-card-content">
+          <h5>Athletics & Recreation</h5>
+          <p>Intramurals, fitness center, trails</p>
+        </div>
+      </div>
+      <div class="campus-card animate-in">
+        <div class="campus-card-bg" style="background: linear-gradient(135deg, #D4A843, #a8852f);"></div>
+        <div class="campus-card-content">
+          <h5>Tutoring & Success Center</h5>
+          <p>Free academic support services</p>
+        </div>
+      </div>
+      <div class="campus-card animate-in">
+        <div class="campus-card-bg" style="background: linear-gradient(135deg, #0F1F2F, #1B3A5C);"></div>
+        <div class="campus-card-content">
+          <h5>Career Services</h5>
+          <p>Job fairs, resume help, internships</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section class="events-section">
+  <div class="container">
+    <div class="section-header">
+      <h3>Upcoming Events</h3>
+      <a href="#">Full Calendar →</a>
+    </div>
+    <div class="events-grid">
+      <div class="event-card animate-in">
+        <div class="event-date">
+          <div class="month">Mar</div>
+          <div class="day">05</div>
+        </div>
+        <div class="event-info">
+          <h5>Spring Open House</h5>
+          <p>9:00 AM — Main Campus</p>
+        </div>
+      </div>
+      <div class="event-card animate-in">
+        <div class="event-date">
+          <div class="month">Mar</div>
+          <div class="day">12</div>
+        </div>
+        <div class="event-info">
+          <h5>Employer Networking Night</h5>
+          <p>5:30 PM — Student Center</p>
+        </div>
+      </div>
+      <div class="event-card animate-in">
+        <div class="event-date">
+          <div class="month">Mar</div>
+          <div class="day">20</div>
+        </div>
+        <div class="event-info">
+          <h5>Financial Aid Workshop</h5>
+          <p>2:00 PM — Admissions Hall</p>
+        </div>
+      </div>
+      <div class="event-card animate-in">
+        <div class="event-date">
+          <div class="month">Apr</div>
+          <div class="day">03</div>
+        </div>
+        <div class="event-info">
+          <h5>Skills USA Regional Qualifier</h5>
+          <p>All Day — Labs & Shops</p>
+        </div>
+      </div>
+      <div class="event-card animate-in">
+        <div class="event-date">
+          <div class="month">Apr</div>
+          <div class="day">15</div>
+        </div>
+        <div class="event-info">
+          <h5>STEM Career Fair</h5>
+          <p>10:00 AM — Gymnasium</p>
+        </div>
+      </div>
+      <div class="event-card animate-in">
+        <div class="event-date">
+          <div class="month">May</div>
+          <div class="day">09</div>
+        </div>
+        <div class="event-info">
+          <h5>Commencement Ceremony</h5>
+          <p>2:00 PM — Auditorium</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h3>Your Career Starts Here</h3>
+    <p>Join thousands of graduates who launched rewarding careers through STech. Apply today or connect with an admissions counselor.</p>
+    <div class="cta-buttons">
+      <a href="#" class="btn-solid">Start Your Application</a>
+      <a href="#" class="btn-ghost">Request Information</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="main-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-text">
+          <h1>STech</h1>
+          <span>Southwest Technical College</span>
+        </div>
+        <p>1800 Bronson Blvd, Creston, IA 50801<br>Phone: (641) 782-7081<br>info@stech.edu</p>
+      </div>
+      <div class="footer-col">
+        <h6>Academics</h6>
+        <ul>
+          <li><a href="#">Programs of Study</a></li>
+          <li><a href="#">Online Learning</a></li>
+          <li><a href="#">Continuing Education</a></li>
+          <li><a href="#">Academic Calendar</a></li>
+          <li><a href="#">Library</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6>Admissions</h6>
+        <ul>
+          <li><a href="#">How to Apply</a></li>
+          <li><a href="#">Tuition & Fees</a></li>
+          <li><a href="#">Financial Aid</a></li>
+          <li><a href="#">Visit Campus</a></li>
+          <li><a href="#">Transfer Students</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6>Resources</h6>
+        <ul>
+          <li><a href="#">Student Portal</a></li>
+          <li><a href="#">Faculty & Staff</a></li>
+          <li><a href="#">Employment</a></li>
+          <li><a href="#">Accessibility</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 STech — Southwest Technical College. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">YouTube</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll-triggered animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
