@@ -1,0 +1,1268 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Southwest Technical College | Cedar City, Utah</title>
+    <meta
+      name="description"
+      content="Southwest Technical College provides employer-driven, competency-based technical education in Cedar City, Utah. Serving Iron, Beaver, Garfield, and Kane counties."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* SOUTHWEST TECHNICAL COLLEGE - COMPLETE HOMEPAGE */
+      :root {
+        --navy: #0a1628;
+        --blue: #2563eb;
+        --cyan: #06b6d4;
+        --amber: #f59e0b;
+        --white: #ffffff;
+        --gray-50: #f9fafb;
+        --gray-100: #f3f4f6;
+        --gray-200: #e5e7eb;
+        --gray-500: #6b7280;
+        --gray-600: #4b5563;
+        --gray-700: #374151;
+        --gray-900: #111827;
+        --font-display: "Space Grotesk", sans-serif;
+        --font-body: "Inter", sans-serif;
+        --radius: 12px;
+        --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--font-body);
+        color: var(--gray-900);
+        background: var(--white);
+        font-size: 16px;
+        line-height: 1.7;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 40px;
+      }
+
+      /* SKIP LINK */
+      .skip-link {
+        position: absolute;
+        top: -60px;
+        left: 20px;
+        background: var(--blue);
+        color: var(--white);
+        padding: 12px 24px;
+        text-decoration: none;
+        font-weight: 600;
+        border-radius: var(--radius);
+        z-index: 10000;
+      }
+      .skip-link:focus {
+        top: 20px;
+        outline: 3px solid var(--amber);
+      }
+      a:focus,
+      button:focus {
+        outline: 3px solid var(--amber);
+        outline-offset: 2px;
+      }
+
+      /* TOP BAR */
+      .topbar {
+        background: var(--navy);
+        padding: 10px 0;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .topbar .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .topbar-left {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .topbar-right {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .topbar-link {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        padding: 6px 14px;
+        border-radius: 6px;
+        transition: all 0.3s;
+        white-space: nowrap;
+      }
+      .topbar-link:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .topbar-link.highlight {
+        background: var(--amber);
+        color: var(--navy);
+        font-weight: 700;
+      }
+
+      /* HEADER */
+      .site-header {
+        background: rgba(255, 255, 255, 0.98);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      }
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 40px;
+        max-width: 1280px;
+        margin: 0 auto;
+        position: relative;
+      }
+      .logo {
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+        z-index: 1001;
+      }
+      .logo-text {
+        font-family: var(--font-display);
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--navy);
+        line-height: 1.2;
+      }
+      .logo-text span {
+        color: var(--blue);
+      }
+      .logo-tagline {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gray-500);
+        margin-top: 3px;
+      }
+
+      /* MOBILE MENU */
+      .mobile-menu-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: transparent;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 1001;
+        position: absolute;
+        right: 40px;
+      }
+      .hamburger {
+        width: 28px;
+        height: 3px;
+        background: var(--navy);
+        transition: all 0.3s;
+        border-radius: 2px;
+      }
+      .mobile-menu-toggle[aria-expanded="true"] .hamburger:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      .mobile-menu-toggle[aria-expanded="true"] .hamburger:nth-child(2) {
+        opacity: 0;
+      }
+      .mobile-menu-toggle[aria-expanded="true"] .hamburger:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+
+      /* NAVIGATION */
+      .main-nav {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      .nav-link {
+        color: var(--gray-700);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 10px 16px;
+        border-radius: var(--radius);
+        transition: all 0.3s;
+      }
+      .nav-link:hover {
+        color: var(--blue);
+        background: var(--gray-50);
+      }
+      .nav-cta {
+        background: var(--blue);
+        color: var(--white);
+        padding: 10px 24px;
+        border-radius: var(--radius);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        margin-left: 8px;
+        transition: all 0.3s;
+      }
+      .nav-cta:hover {
+        background: #1d4ed8;
+      }
+
+      /* VIDEO HERO */
+      .hero-video {
+        position: relative;
+        min-height: 85vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background: var(--navy);
+      }
+      .hero-video__background {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+      }
+      .hero-video__player {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        transform: translate(-50%, -50%);
+        object-fit: cover;
+      }
+      .hero-video__overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(10, 22, 40, 0.85),
+          rgba(37, 99, 235, 0.65)
+        );
+        z-index: 2;
+      }
+      .hero-video__content {
+        position: relative;
+        z-index: 3;
+        text-align: center;
+        color: var(--white);
+        max-width: 900px;
+        padding: 0 40px;
+      }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-size: 13px;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+      }
+      .hero-badge-dot {
+        width: 8px;
+        height: 8px;
+        background: var(--amber);
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.7;
+        }
+      }
+      .hero-title {
+        font-family: var(--font-display);
+        font-size: 64px;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 24px;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      }
+      .hero-title-highlight {
+        background: linear-gradient(135deg, var(--cyan), #3b82f6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .hero-subtitle {
+        font-size: 22px;
+        line-height: 1.6;
+        margin-bottom: 40px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-cta-group {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .hero-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 16px 32px;
+        border-radius: var(--radius);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        transition: all 0.3s;
+      }
+      .hero-btn-primary {
+        background: var(--amber);
+        color: var(--navy);
+      }
+      .hero-btn-primary:hover {
+        background: #d97706;
+        transform: translateY(-2px);
+      }
+      .hero-btn-secondary {
+        background: rgba(255, 255, 255, 0.15);
+        color: var(--white);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+      }
+
+      /* VIDEO CONTROLS */
+      .video-controls {
+        position: absolute;
+        bottom: 40px;
+        right: 40px;
+        z-index: 10;
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      .video-control-btn {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 18px;
+        transition: all 0.3s;
+      }
+      .video-control-btn:hover {
+        background: rgba(255, 255, 255, 0.25);
+      }
+      .video-playlist-indicator {
+        display: flex;
+        gap: 8px;
+        margin-left: 12px;
+      }
+      .playlist-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      .playlist-dot:hover {
+        background: rgba(255, 255, 255, 0.5);
+      }
+      .playlist-dot.active {
+        background: var(--amber);
+        box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+      }
+
+      /* STATS */
+      .stats-section {
+        background: var(--gray-50);
+        padding: 80px 0;
+      }
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+      }
+      .stat-item {
+        text-align: center;
+      }
+      .stat-number {
+        font-family: var(--font-display);
+        font-size: 56px;
+        font-weight: 800;
+        color: var(--blue);
+        margin-bottom: 8px;
+        line-height: 1;
+      }
+      .stat-label {
+        font-size: 15px;
+        color: var(--gray-600);
+        font-weight: 500;
+      }
+
+      /* INFO SECTION */
+      .info-section {
+        padding: 100px 0;
+      }
+      .section-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 60px;
+      }
+      .section-eyebrow {
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--blue);
+        margin-bottom: 12px;
+      }
+      .section-title {
+        font-family: var(--font-display);
+        font-size: 48px;
+        font-weight: 800;
+        color: var(--navy);
+        margin-bottom: 16px;
+        line-height: 1.2;
+      }
+      .section-subtitle {
+        font-size: 19px;
+        color: var(--gray-600);
+        line-height: 1.6;
+      }
+
+      /* FEATURES */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+      }
+      .feature-card {
+        background: var(--white);
+        padding: 40px;
+        border-radius: 16px;
+        border: 1px solid var(--gray-200);
+        transition: all 0.3s;
+      }
+      .feature-card:hover {
+        border-color: var(--blue);
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-4px);
+      }
+      .feature-icon {
+        width: 64px;
+        height: 64px;
+        background: linear-gradient(135deg, var(--blue), var(--cyan));
+        border-radius: var(--radius);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+        font-size: 28px;
+      }
+      .feature-title {
+        font-family: var(--font-display);
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 12px;
+      }
+      .feature-description {
+        color: var(--gray-600);
+        line-height: 1.7;
+      }
+
+      /* PROGRAMS */
+      .programs-section {
+        background: var(--navy);
+        color: var(--white);
+        padding: 100px 0;
+      }
+      .programs-section .section-eyebrow {
+        color: var(--cyan);
+      }
+      .programs-section .section-title {
+        color: var(--white);
+      }
+      .programs-section .section-subtitle {
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .programs-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+        margin-top: 60px;
+      }
+      .program-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 32px;
+        transition: all 0.3s;
+      }
+      .program-card:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: var(--cyan);
+        transform: translateY(-4px);
+      }
+      .program-category {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--cyan);
+        margin-bottom: 12px;
+      }
+      .program-title {
+        font-family: var(--font-display);
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 12px;
+        line-height: 1.3;
+      }
+      .program-list {
+        list-style: none;
+        margin-top: 16px;
+      }
+      .program-list li {
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .program-list li:last-child {
+        border-bottom: none;
+      }
+
+      /* CTA */
+      .cta-section {
+        background: linear-gradient(135deg, var(--blue), var(--cyan));
+        padding: 80px 0;
+        text-align: center;
+        color: var(--white);
+      }
+      .cta-title {
+        font-family: var(--font-display);
+        font-size: 48px;
+        font-weight: 800;
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+      .cta-subtitle {
+        font-size: 20px;
+        margin-bottom: 40px;
+        opacity: 0.95;
+      }
+      .cta-buttons {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .cta-btn {
+        padding: 16px 36px;
+        border-radius: var(--radius);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 16px;
+        transition: all 0.3s;
+      }
+      .cta-btn-white {
+        background: var(--white);
+        color: var(--blue);
+      }
+      .cta-btn-white:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+      }
+      .cta-btn-outline {
+        background: transparent;
+        color: var(--white);
+        border: 2px solid rgba(255, 255, 255, 0.5);
+      }
+      .cta-btn-outline:hover {
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      /* FOOTER */
+      .site-footer {
+        background: var(--gray-900);
+        color: rgba(255, 255, 255, 0.7);
+        padding: 60px 0 30px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 60px;
+        margin-bottom: 60px;
+      }
+      .footer-column h4 {
+        color: var(--white);
+        font-family: var(--font-display);
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+      .footer-column p {
+        font-size: 14px;
+        line-height: 1.7;
+        margin-bottom: 16px;
+      }
+      .footer-links {
+        list-style: none;
+      }
+      .footer-links li {
+        margin-bottom: 12px;
+      }
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        font-size: 14px;
+        transition: all 0.3s;
+      }
+      .footer-links a:hover {
+        color: var(--white);
+      }
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .footer-links-bottom {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .footer-links-bottom a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+      }
+      .footer-links-bottom a:hover {
+        color: var(--white);
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 968px) {
+        .features-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .programs-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 20px;
+        }
+        .header-container {
+          padding: 16px 20px;
+        }
+        .mobile-menu-toggle {
+          display: flex;
+          right: 20px;
+        }
+        .main-nav {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 300px;
+          max-width: 85vw;
+          height: 100vh;
+          background: var(--white);
+          flex-direction: column;
+          align-items: stretch;
+          gap: 0;
+          padding: 80px 0 20px;
+          box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2);
+          transition: right 0.3s;
+          overflow-y: auto;
+          z-index: 1000;
+        }
+        .main-nav.active {
+          right: 0;
+        }
+        .nav-link {
+          padding: 16px 24px;
+          border-bottom: 1px solid var(--gray-200);
+          border-radius: 0;
+        }
+        .nav-cta {
+          margin: 20px 24px;
+          text-align: center;
+        }
+        body.menu-open::before {
+          content: "";
+          position: fixed;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.5);
+          z-index: 999;
+        }
+        .hero-video {
+          min-height: 70vh;
+        }
+        .hero-title {
+          font-size: 40px;
+        }
+        .hero-subtitle {
+          font-size: 18px;
+        }
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 30px;
+        }
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
+        .programs-grid {
+          grid-template-columns: 1fr;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .video-controls {
+          bottom: 20px;
+          right: 20px;
+        }
+        .video-playlist-indicator {
+          position: absolute;
+          bottom: -45px;
+          left: 50%;
+          transform: translateX(-50%);
+          margin-left: 0;
+        }
+        .video-controls {
+          position: relative;
+          padding-bottom: 50px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-title {
+          font-size: 32px;
+        }
+        .hero-subtitle {
+          font-size: 16px;
+        }
+        .stats-grid {
+          grid-template-columns: 1fr;
+        }
+        .section-title {
+          font-size: 32px;
+        }
+        .cta-title {
+          font-size: 32px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+      <div class="container">
+        <div class="topbar-left">
+          <span><strong>CEDAR CITY, UT</strong> | (435) 586-2899</span>
+          <span><strong>Email:</strong> info@stech.edu</span>
+        </div>
+        <div class="topbar-right">
+          <a href="#" class="topbar-link">Course Schedules</a>
+          <a href="https://portal.stech.edu" class="topbar-link"
+            >Student Portal</a
+          >
+          <a href="#" class="topbar-link">Canvas</a>
+          <a href="#" class="topbar-link">Student Job Board</a>
+          <a href="#" class="topbar-link highlight">GET STARTED!</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+      <div class="header-container">
+        <a href="#" class="logo">
+          <div class="logo-text">Southwest <span>Tech</span></div>
+          <div class="logo-tagline">Technical College</div>
+        </a>
+
+        <button
+          class="mobile-menu-toggle"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <span class="hamburger"></span>
+          <span class="hamburger"></span>
+          <span class="hamburger"></span>
+        </button>
+
+        <nav class="main-nav">
+          <a href="#programs" class="nav-link">Programs</a>
+          <a href="#admissions" class="nav-link">Admissions</a>
+          <a href="#highschool" class="nav-link">High School</a>
+          <a href="#community" class="nav-link">Community</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#apply" class="nav-cta">Apply Now</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Video Hero -->
+    <section class="hero-video" id="main-content">
+      <div class="hero-video__background">
+        <video
+          class="hero-video__player"
+          autoplay
+          muted
+          loop
+          playsinline
+          id="heroVideo"
+        ></video>
+      </div>
+      <div class="hero-video__overlay"></div>
+      <div class="hero-video__content">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          100% Open Enrollment
+        </div>
+        <h1 class="hero-title">
+          Equip Yourself with
+          <span class="hero-title-highlight">Technical Skills</span> for Today's
+          Workforce
+        </h1>
+        <p class="hero-subtitle">
+          Our mission is simple: to help you thrive in today's fast-paced
+          workforce through innovative, competency-based programs developed with
+          local business and industry partners.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#apply" class="hero-btn hero-btn-primary"
+            >Get Started Today →</a
+          >
+          <a href="#programs" class="hero-btn hero-btn-secondary"
+            >View Programs</a
+          >
+        </div>
+      </div>
+      <div class="video-controls">
+        <button class="video-control-btn" id="playBtn">
+          <span id="playIcon">⏸</span>
+        </button>
+        <button class="video-control-btn" id="muteBtn">
+          <span id="muteIcon">🔇</span>
+        </button>
+        <div class="video-playlist-indicator">
+          <span class="playlist-dot active" data-index="0"></span>
+          <span class="playlist-dot" data-index="1"></span>
+          <span class="playlist-dot" data-index="2"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Open Enrollment</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">21</div>
+            <div class="stat-label">Certificate Programs</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">$95</div>
+            <div class="stat-label">Per Credit Hour</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">COE</div>
+            <div class="stat-label">Accredited</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Southwest Tech -->
+    <section class="info-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">Why Southwest Tech?</div>
+          <h2 class="section-title">
+            Affordable, Flexible, High-Quality Education
+          </h2>
+          <p class="section-subtitle">
+            Located in Southern Utah, serving Iron, Beaver, Garfield, and Kane
+            counties with technical education designed to meet the needs of
+            students, employers, and communities.
+          </p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🎓</div>
+            <h3 class="feature-title">COE Accredited</h3>
+            <p class="feature-description">
+              Accredited by the Commission of the Council on Occupational
+              Education, ensuring quality education and recognized
+              certifications.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3 class="feature-title">Competency-Based</h3>
+            <p class="feature-description">
+              Self-paced, competency-based programs with individualized
+              instruction to help you achieve goals at your own pace.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🏭</div>
+            <h3 class="feature-title">Industry Partnerships</h3>
+            <p class="feature-description">
+              Programs developed with ongoing involvement from local business
+              and industry partners to stay ahead of workforce trends.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">👥</div>
+            <h3 class="feature-title">Small Class Sizes</h3>
+            <p class="feature-description">
+              Experienced, dedicated instructors committed to providing
+              personalized attention and high-quality education.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎒</div>
+            <h3 class="feature-title">High School Programs</h3>
+            <p class="feature-description">
+              High school students can take college courses 100% tuition-free
+              that count toward high school CTE credit.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">💼</div>
+            <h3 class="feature-title">Community Training</h3>
+            <p class="feature-description">
+              Community and employer training courses for skill development and
+              occupational training purposes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programs -->
+    <section class="programs-section" id="programs">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">21 Certificate Programs</div>
+          <h2 class="section-title">Choose Your Path</h2>
+          <p class="section-subtitle">
+            Southwest Tech offers certificate programs across seven different
+            departments, all designed to prepare you for immediate employment.
+          </p>
+        </div>
+        <div class="programs-grid">
+          <div class="program-card">
+            <div class="program-category">Computer Science</div>
+            <h3 class="program-title">
+              Information Technology & Software Development
+            </h3>
+            <ul class="program-list">
+              <li>Information Technology</li>
+              <li>Software Development</li>
+            </ul>
+          </div>
+
+          <div class="program-card">
+            <div class="program-category">Service Professions</div>
+            <h3 class="program-title">Culinary & Esthetics</h3>
+            <ul class="program-list">
+              <li>Culinary Arts</li>
+              <li>Master Esthetician</li>
+            </ul>
+          </div>
+
+          <div class="program-card">
+            <div class="program-category">Nursing</div>
+            <h3 class="program-title">Nursing Programs</h3>
+            <ul class="program-list">
+              <li>Nursing Assistant</li>
+              <li>Practical Nursing</li>
+            </ul>
+          </div>
+
+          <div class="program-card">
+            <div class="program-category">Health Professions</div>
+            <h3 class="program-title">Medical & Surgical</h3>
+            <ul class="program-list">
+              <li>Medical Assistant</li>
+              <li>Medical Office Receptionist</li>
+              <li>Phlebotomy</li>
+              <li>Pharmacy Technician</li>
+              <li>Surgical Technology</li>
+            </ul>
+          </div>
+
+          <div class="program-card">
+            <div class="program-category">Public Safety</div>
+            <h3 class="program-title">Emergency Services</h3>
+            <ul class="program-list">
+              <li>Emergency Medical Technician</li>
+              <li>Advanced Emergency Medical Technician</li>
+              <li>Paramedic</li>
+              <li>Firefighter</li>
+            </ul>
+          </div>
+
+          <div class="program-card">
+            <div class="program-category">Manufacturing</div>
+            <h3 class="program-title">Automation & Welding</h3>
+            <ul class="program-list">
+              <li>Automation Technology</li>
+              <li>Welding Essentials</li>
+              <li>Production Welding</li>
+            </ul>
+          </div>
+
+          <div class="program-card">
+            <div class="program-category">Transportation</div>
+            <h3 class="program-title">Automotive & CDL</h3>
+            <ul class="program-list">
+              <li>Automotive Technology</li>
+              <li>Commercial Driver's License Class A</li>
+            </ul>
+          </div>
+
+          <div class="program-card">
+            <div class="program-category">Apprenticeships</div>
+            <h3 class="program-title">Trades Apprenticeships</h3>
+            <ul class="program-list">
+              <li>Electrical Apprenticeship</li>
+              <li>Plumbing Apprenticeship</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <h2 class="cta-title">Ready to Transform Your Future?</h2>
+        <p class="cta-subtitle">
+          Your path to success begins here. Join the Southwest Tech family
+          today.
+        </p>
+        <div class="cta-buttons">
+          <a href="#" class="cta-btn cta-btn-white">Apply Now</a>
+          <a href="#" class="cta-btn cta-btn-outline">Request Information</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-column">
+            <h4>Southwest Technical College</h4>
+            <p>
+              Our mission is to equip students with the technical skills needed
+              to thrive in today's fast-paced workforce through employer-driven,
+              competency-based programs.
+            </p>
+            <p style="margin-top: 20px">
+              <strong>Address:</strong><br />757 West 800 South<br />Cedar City,
+              UT 84720
+            </p>
+            <p>
+              <strong>Phone:</strong> (435) 586-2899<br /><strong
+                >Email:</strong
+              >
+              info@stech.edu
+            </p>
+          </div>
+
+          <div class="footer-column">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="#">Programs</a></li>
+              <li><a href="#">Admissions</a></li>
+              <li><a href="#">High School Programs</a></li>
+              <li><a href="#">Community Classes</a></li>
+              <li><a href="#">Financial Aid</a></li>
+              <li><a href="#">Course Schedules</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Student Resources</h4>
+            <ul class="footer-links">
+              <li><a href="https://portal.stech.edu">Student Portal</a></li>
+              <li><a href="#">Canvas LMS</a></li>
+              <li><a href="#">Student Job Board</a></li>
+              <li><a href="#">Academic Calendar</a></li>
+              <li><a href="#">Course Catalog</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>About</h4>
+            <ul class="footer-links">
+              <li><a href="#">About Southwest Tech</a></li>
+              <li><a href="#">Accreditation</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Donate</a></li>
+              <li><a href="#">News & Events</a></li>
+            </ul>
+            <p style="margin-top: 20px; font-size: 12px; line-height: 1.6">
+              Accredited by the Commission of the Council on Occupational
+              Education. Part of the Utah System of Technical Colleges.
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div>
+            &copy; 2026 Southwest Technical College. All rights reserved.
+          </div>
+          <div class="footer-links-bottom">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Accessibility Statement</a>
+            <a href="#">Title IX</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // VIDEO PLAYLIST - 3 VIDEOS
+      console.log("🎬 Southwest Tech - Video Playlist");
+
+      const video = document.getElementById("heroVideo");
+      const playBtn = document.getElementById("playBtn");
+      const muteBtn = document.getElementById("muteBtn");
+      const playIcon = document.getElementById("playIcon");
+      const muteIcon = document.getElementById("muteIcon");
+      const dots = document.querySelectorAll(".playlist-dot");
+
+      // YOUR 3 VIDEOS
+      const videos = [
+        "./5182683-hd_1920_1080_30fps.mp4",
+        "./6344218-uhd_4096_2160_25fps.mp4",
+        "./7945680-hd_1920_1080_25fps.mp4",
+      ];
+
+      let current = 0;
+      let paused = false;
+
+      function load(index) {
+        console.log(`📹 Video ${index + 1}/3`);
+        current = index;
+        video.src = videos[index];
+        video.load();
+        if (!paused)
+          video.play().catch((e) => console.log("⚠️ Autoplay blocked"));
+        dots.forEach((d, i) => d.classList.toggle("active", i === index));
+      }
+
+      video.addEventListener("ended", () => {
+        load((current + 1) % 3);
+      });
+
+      playBtn.addEventListener("click", () => {
+        if (video.paused) {
+          video.play();
+          playIcon.textContent = "⏸";
+          paused = false;
+        } else {
+          video.pause();
+          playIcon.textContent = "▶";
+          paused = true;
+        }
+      });
+
+      muteBtn.addEventListener("click", () => {
+        video.muted = !video.muted;
+        muteIcon.textContent = video.muted ? "🔇" : "🔊";
+      });
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener("click", () => {
+          paused = false;
+          load(i);
+        });
+      });
+
+      load(0);
+
+      // MOBILE MENU
+      (function () {
+        const toggle = document.querySelector(".mobile-menu-toggle");
+        const nav = document.querySelector(".main-nav");
+        const body = document.body;
+
+        if (toggle && nav) {
+          toggle.addEventListener("click", () => {
+            const expanded = toggle.getAttribute("aria-expanded") === "true";
+            toggle.setAttribute("aria-expanded", !expanded);
+            nav.classList.toggle("active");
+            body.classList.toggle("menu-open");
+          });
+
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && nav.classList.contains("active")) {
+              toggle.setAttribute("aria-expanded", "false");
+              nav.classList.remove("active");
+              body.classList.remove("menu-open");
+            }
+          });
+        }
+      })();
+
+      console.log("✅ Ready!");
+    </script>
+  </body>
+</html>
